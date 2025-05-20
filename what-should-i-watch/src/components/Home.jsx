@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="home" style={{ backgroundImage: `url(${BannerImage})` }}>
+    <div className="home">
       <div className="headerContainer">
         <h1> What Should I Watch? </h1>
       </div>

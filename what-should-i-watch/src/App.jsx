@@ -1,24 +1,29 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import OptionsContainer from "./components/FilterContainer";
+import FilterContainer from "./components/FilterContainer";
 import Home from "./components/Home";
+import About from "./components/About";
 import Footer from "./components/Footer";
+import Selection from "./components/Selection";
 
 function App() {
   return (
     <main>
       <div className="App">
-        <Router>
+        <BrowserRouter>
           <NavBar />
           <Routes>
-            <Route path="/" exact component={<Home />}></Route>
+            <Route index element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/filterContainer" element={<FilterContainer />} />
+            <Route path="/selection" element={<Selection />} />
+            <Route path="/footer" element={<Footer />} />
           </Routes>
-        </Router>
+          <Footer />
+        </BrowserRouter>
       </div>
-      <OptionsContainer />
       <></>
-      <Footer />
     </main>
   );
 }

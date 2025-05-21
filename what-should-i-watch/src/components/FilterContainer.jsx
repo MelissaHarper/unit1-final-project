@@ -1,6 +1,8 @@
-function OptionsContainer() {
+import "../styles/filterContainer.css";
+
+function FilterContainer() {
   return (
-    <div>
+    <div className="container-filter">
       <p>
         Code for rendering options container goes here. Don't forget to link to
         the recommendation page. Getter and Setter for filtered list that should
@@ -11,4 +13,4 @@ function OptionsContainer() {
   );
 }
 
-export default OptionsContainer;
+export default FilterContainer;

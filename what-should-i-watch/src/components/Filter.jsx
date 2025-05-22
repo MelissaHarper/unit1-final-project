@@ -1,27 +1,9 @@
-// const Filter = () => {
-//   return (
-//     //<div className="filter" key={id}>
-//     <div>
-//       <p>
-//         {" "}
-//         Filter Structure Goes Here
-//         <br />
-//         Child of FilterContainer?
-//       </p>
-//     </div>
-//   );
-// };
-
 import React from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import { genreOptions } from "../shared/utils";
 
 const Filter = () => {
-  // const genres = genreData.map((obj) => {
-  //   return (obj.value = obj.name), (obj.label = obj.name);
-  // });
-  // const { name } = genres;
   const animatedComponents = makeAnimated();
 
   return (

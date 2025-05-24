@@ -1,0 +1,31 @@
+.selection-wrapper {
+  flex-flow: flex row;
+  padding-left: 10px;
+}
+
+.poster-fw {
+  flex-direction: column;
+  width: 40%;
+  border-width: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+#selection-info {
+  flex-direction: column;
+  width: 60%;
+  padding: 20px;
+}
+
+#available-plants-grid {
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
+}
+
+#selection-right {
+  flex-direction: column;
+  width: calc(100% - 300px);
+  padding: 20px;
+}

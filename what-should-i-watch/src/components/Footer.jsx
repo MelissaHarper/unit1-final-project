@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
-const Footer = () => {
+import { useState } from "react";
+import data from "../assets/data/mergedDummyData.json";
+
+const Footer = ({ selectedMovie, setSelectedMovie }) => {
   const navigate = useNavigate();
 
   const handleRedirect = () => {
@@ -8,12 +11,12 @@ const Footer = () => {
   //Button takes you to the same place, but returns a different result depending on which one is pushed. Getters and Setters?
   return (
     <footer>
-      <button className="random-movie" onClick={handleRedirect}>
+      {/* <button className="random-movie" onClick={handleRedirect}>
         Get Random Movie
       </button>
       <button className="random-tv-show" onClick={handleRedirect}>
         Get Random TV Show
-      </button>
+      </button> */}
       <button className="random-all" onClick={handleRedirect}>
         Surprise Me!
       </button>

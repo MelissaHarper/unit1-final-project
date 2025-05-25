@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "tmdb-js-wrapper": "^1.0.4"
+  }
+}

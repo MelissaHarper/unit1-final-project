@@ -3,8 +3,8 @@ import posterFW from "../assets/images/stand-in-movie-poster.png";
 import data from "../assets/data/mergedDummyData.json";
 import "../styles/Selection.css";
 
-const Selection = ({ selection }) => {
-  let { title, release_data, overview, original_title, genres, altTitle } =
+const Selection = ({ selectedMovie }) => {
+  let { title, release_date, overview, original_title, genres, altTitle } =
     data[1];
 
   return (
@@ -13,7 +13,7 @@ const Selection = ({ selection }) => {
       <section className="selection-info">
         <h2>{title}</h2>
         {altTitle && <h3>Original Title: {original_title}</h3>}
-        <p className="release-date">Release date: {release_data}</p>
+        <p className="release-date">Release date: {release_date}</p>
         <p className="overview">Overview {overview}</p>
         <p className="genres">Genres: {genres.sort().join(", ")}</p>
       </section>

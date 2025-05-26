@@ -1,0 +1,12 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  -ms-flex-align: center;
+  width: "100%";
+  background-image: "radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 90%), transparent)";
+  background-repeat: "no-repeat";
+  ...theme.applyStyles("dark" {
+          backgroundImage:
+            "radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 16%), transparent)",
+});
+}

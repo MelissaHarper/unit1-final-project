@@ -1,27 +1,45 @@
-.navbar {
-  width: 100%;
-  height: 100%;
-  background-color: #121619;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 5%;
+.navbar{position: relative;
+    min-height: 48px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-shrink: 0;
+    border-top-left-radius: calc(16px);
+    border-top-right-radius: calc(16px);
+    border-bottom-right-radius: calc(16px);
+    border-bottom-left-radius: calc(16px);
+    backdrop-filter: blur(24px);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    /* border-top-color: ;
+    border-right-color: ;
+    border-bottom-color: ;
+    border-left-color: ; */
+    background-color: rgba(var(--template-palette-background-defaultChannel) / 0.4);
+    box-shadow: var(--template-shadows-1);
+    padding: 8px 12px;
+    margin-bottom: 20%;
+    color: white;
 }
 
-.navbar .leftSide {
-  /* flex: 50%; */
-  /* height: 100%; */
-  /* display: flex row; */
-  /* align-items: flex-start; */
-  padding-left: 10px;
-}
 
-.navbar .rightSide {
-  flex: 50%;
-  height: 100%;
-  display: flex;
-  /* align-items: center; */
-  justify-content: flex-end;
-}
+
+
+
+
 
 .navbar a {
   color: white;
@@ -29,41 +47,7 @@
   margin: 20px;
 }
 
-/* .navbar .rightSide button {
-  background-color: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
-} */
 
-/* .navbar .rightSide svg {
-  font-size: 40px;
-} */
-
-/* .navbar #open {
-  padding-left: 0px;
-}
-.navbar #open img {
-  display: none;
-}
-
-.navbar #close img {
-  display: inherit;
-}
-
-.navbar #open .hiddenLinks {
-  display: inherit;
-  margin-left: 30px;
-}
-
-.navbar #close .hiddenLinks {
-  display: none;
-} */
-
-/* .navbar #open a {
-  width: 70px;
-  margin: 5px;
-} */
 @media only screen and (max-width: 900px) {
   .navbar .rightSide a {
     width: 70px;
@@ -96,4 +80,4 @@
   .hiddenLinks {
     display: none;
   }
-}
+} */

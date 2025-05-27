@@ -15,7 +15,9 @@
     "vote_average": 5.3,
     "vote_count": 3,
     "altTitle": false,
-    "genres": ["LGBTQ", "Drama"]
+    "genres": ["LGBTQ", "Drama"],
+    "imdb_id": "tt33269451",
+    "imdb_rating": "5.2"
   },
   {
     "adult": false,
@@ -33,7 +35,9 @@
     "vote_average": 8.204,
     "vote_count": 3930,
     "altTitle": true,
-    "genres": ["LGBTQ", "Thriller", "Drama", "Romance"]
+    "genres": ["LGBTQ", "Thriller", "Drama", "Romance"],
+    "imdb_id": "tt4016934",
+    "imdb_rating": "8.1"
   },
   {
     "adult": false,
@@ -51,7 +55,9 @@
     "vote_average": 6.643,
     "vote_count": 14,
     "altTitle": false,
-    "genres": ["LGBTQ", "Drama"]
+    "genres": ["LGBTQ", "Drama"],
+    "imdb_id": "tt31589922",
+    "imdb_rating": "4.5"
   },
   {
     "adult": false,
@@ -69,7 +75,9 @@
     "vote_average": 6.801,
     "vote_count": 1229,
     "altTitle": false,
-    "genres": ["LGBTQ", "Drama", "Romance"]
+    "genres": ["LGBTQ", "Drama", "Romance"],
+    "imdb_id": "tt5073620",
+    "imdb_rating": "5.5"
   },
   {
     "adult": false,
@@ -87,7 +95,9 @@
     "vote_average": 7.758,
     "vote_count": 7042,
     "altTitle": false,
-    "genres": ["LGBTQ", "Action", "Adventure", "Science Fiction"]
+    "genres": ["LGBTQ", "Action", "Adventure", "Science Fiction"],
+    "imdb_id": "tt6710474",
+    "imdb_rating": "7.8"
   },
   {
     "adult": false,
@@ -105,7 +115,8 @@
     "vote_average": 5,
     "vote_count": 1,
     "altTitle": true,
-    "genres": ["LGBTQ", "Romance", "Animation"]
+    "genres": ["LGBTQ", "Romance", "Animation"],
+    "imdb_id": null
   },
   {
     "adult": false,
@@ -123,7 +134,9 @@
     "vote_average": 6.817,
     "vote_count": 8563,
     "altTitle": false,
-    "genres": ["LGBTQ", "Science Fiction", "Action", "Adventure"]
+    "genres": ["LGBTQ", "Science Fiction", "Action", "Adventure"],
+    "imdb_id": "tt9032400",
+    "imdb_rating": "6.2"
   },
   {
     "adult": false,
@@ -141,7 +154,9 @@
     "vote_average": 5.273,
     "vote_count": 11,
     "altTitle": false,
-    "genres": ["LGBTQ", "Drama", "Romance"]
+    "genres": ["LGBTQ", "Drama", "Romance"],
+    "imdb_id": "tt33475745",
+    "imdb_rating": "5.2"
   },
   {
     "adult": false,
@@ -159,7 +174,9 @@
     "vote_average": 8.117,
     "vote_count": 12307,
     "altTitle": false,
-    "genres": ["LGBTQ", "Romance", "Drama"]
+    "genres": ["LGBTQ", "Romance", "Drama"],
+    "imdb_id": "tt5726616",
+    "imdb_rating": "7.8"
   },
   {
     "adult": false,
@@ -195,7 +212,9 @@
     "vote_average": 8.232,
     "vote_count": 12006,
     "altTitle": false,
-    "genres": ["LGBTQ", "Drama", "History"]
+    "genres": ["LGBTQ", "Drama", "History"],
+    "imdb_id": "tt6966692",
+    "imdb_rating": "8.2"
   },
   {
     "adult": false,
@@ -213,7 +232,9 @@
     "vote_average": 7.991,
     "vote_count": 1373,
     "altTitle": false,
-    "genres": ["LGBTQ", "Comedy", "Romance"]
+    "genres": ["LGBTQ", "Comedy", "Romance"],
+    "imdb_id": "tt10172266",
+    "imdb_rating": "6.9"
   },
   {
     "adult": false,
@@ -231,7 +252,9 @@
     "vote_average": 6.641,
     "vote_count": 4700,
     "altTitle": false,
-    "genres": ["LGBTQ", "Fantasy", "Adventure"]
+    "genres": ["LGBTQ", "Fantasy", "Adventure"],
+    "imdb_id": "tt4123432",
+    "imdb_rating": "6.2"
   },
   {
     "adult": false,
@@ -249,7 +272,9 @@
     "vote_average": 8.6,
     "vote_count": 72,
     "altTitle": false,
-    "genres": ["LGBTQ", "Drama", "Romance"]
+    "genres": ["LGBTQ", "Drama", "Romance"],
+    "imdb_id": "tt15245268",
+    "imdb_rating": "8.0"
   },
   {
     "adult": false,
@@ -267,7 +292,9 @@
     "vote_average": 6,
     "vote_count": 1,
     "altTitle": false,
-    "genres": ["LGBTQ", "Drama"]
+    "genres": ["LGBTQ", "Drama"],
+    "imdb_id": "tt32792988",
+    "imdb_rating": "6.7"
   },
   {
     "adult": false,
@@ -285,7 +312,9 @@
     "vote_average": 6.836,
     "vote_count": 8930,
     "altTitle": false,
-    "genres": ["LGBTQ", "Horror", "Thriller"]
+    "genres": ["LGBTQ", "Horror", "Thriller"],
+    "imdb_id": "tt7349950",
+    "imdb_rating": "6.5"
   },
   {
     "adult": false,
@@ -303,7 +332,9 @@
     "vote_average": 7.995,
     "vote_count": 17341,
     "altTitle": false,
-    "genres": ["LGBTQ", "History", "Drama", "Thriller", "War"]
+    "genres": ["LGBTQ", "History", "Drama", "Thriller", "War"],
+    "imdb_id": "tt2084970",
+    "imdb_rating": "8.0"
   },
   {
     "adult": false,
@@ -321,7 +352,9 @@
     "vote_average": 7.962,
     "vote_count": 690,
     "altTitle": true,
-    "genres": ["LGBTQ", "Mystery", "Thriller", "Drama"]
+    "genres": ["LGBTQ", "Mystery", "Thriller", "Drama"],
+    "imdb_id": "tt23736044",
+    "imdb_rating": "7.8"
   },
   {
     "adult": false,
@@ -339,7 +372,9 @@
     "vote_average": 6.982,
     "vote_count": 2526,
     "altTitle": false,
-    "genres": ["LGBTQ", "Drama", "Comedy", "Thriller"]
+    "genres": ["LGBTQ", "Drama", "Comedy", "Thriller"],
+    "imdb_id": "tt17351924",
+    "imdb_rating": "7.0"
   },
   {
     "adult": false,
@@ -357,6 +392,8 @@
     "vote_average": 6.571,
     "vote_count": 784,
     "altTitle": false,
-    "genres": ["LGBTQ", "Crime", "Romance", "Thriller"]
+    "genres": ["LGBTQ", "Crime", "Romance", "Thriller"],
+    "imdb_id": "tt19637052",
+    "imdb_rating": "6.6"
   }
 ]

@@ -55,6 +55,10 @@ export const genreOptions = [
     label: "Horror",
   },
   {
+    value: 0,
+    label: "LGBTQ",
+  },
+  {
     value: 10402,
     label: "Music",
   },

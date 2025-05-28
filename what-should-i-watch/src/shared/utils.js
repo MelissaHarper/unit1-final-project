@@ -1,12 +1,17 @@
+import options from "./call-structure.js";
+
+/*** Call Functions ***/
+export const searchByGenre = fetch(
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=16&with_runtime.gte=2147483647",
+  options
+)
+  .then((res) => res.json())
+  .catch((err) => console.error(err));
+
+/*** Utility Functions ***/
 export const getRandomElement = (arr) => {
   let randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
-};
-
-export const selectRandom = (num) => {
-  // Code should select random movie objects from a filtered array of objects. the num parameter is the number of items it should return. Filter container sets the number at 5. Random sets the number at 1.
-
-  return "stuff";
 };
 
 export const filterByDate = (arr, dateRange) => {

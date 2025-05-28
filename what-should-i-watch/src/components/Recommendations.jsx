@@ -1,8 +1,12 @@
 import MovieCard from "./MovieCard";
+import "../styles/recommendations.css";
 
 const Recommendations = () => {
   return (
-    <div>
+    <div className="recommend-grid">
+      <MovieCard />
+      <MovieCard />
+      <MovieCard />
       <MovieCard />
     </div>
   );

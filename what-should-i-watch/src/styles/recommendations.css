@@ -1,0 +1,9 @@
+div .recommend-grid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  /* margin: 20px, 20px; */
+}

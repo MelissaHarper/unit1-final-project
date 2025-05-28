@@ -8,6 +8,7 @@ const Recommendations = () => {
       <MovieCard />
       <MovieCard />
       <MovieCard />
+      <MovieCard />
     </div>
   );
 };

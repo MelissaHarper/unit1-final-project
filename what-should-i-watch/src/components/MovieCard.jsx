@@ -19,8 +19,6 @@ const MovieCard = () => {
           className="poster"
           src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
           alt={movie.title || movie.original_title || movie.original_name}
-          //   useIntersectionObserver={true}
-          //   threshold={100}
           placeholderSrc={<div className="poster" />}
           onError={(event) => {
             event.currentTarget.onerror = null;

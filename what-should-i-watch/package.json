@@ -14,11 +14,13 @@
     "@emotion/styled": "^11.14.0",
     "@fontsource/roboto": "^5.2.5",
     "@mui/material": "^7.1.0",
+    "@tabler/icons-react": "^3.33.0",
     "date-range-picker": "^0.3.5",
     "react": "^19.1.0",
     "react-date-range": "^2.0.1",
     "react-datepicker": "^8.4.0",
     "react-dom": "^19.1.0",
+    "react-lazy-load-image-component": "^1.6.3",
     "react-router-dom": "^7.6.0",
     "react-select": "^5.10.1"
   },

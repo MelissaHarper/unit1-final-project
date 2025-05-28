@@ -12,7 +12,7 @@ const MovieCard = () => {
   return (
     <div className="movie-card">
       <Link
-        to={`/selection/movie/detail/${movie.id}`} // To later integrate TV shows: to={`/selection/${movie.first_air_date ? "tv" : "movie"}/detail/${movie.id}`}
+        to={`/selection/movie/detail/${movie.id}`} // To later integrate TV
       >
         <LazyLoadImage
           className="poster"
@@ -29,7 +29,7 @@ const MovieCard = () => {
       </Link>
       <div className="info">
         <Link
-          to={`/${movie.first_air_date ? "tv" : "movie"}/detail/${movie.id}}`} // To later integrate TV
+          to={`/selection/movie/detail/${movie.id}}`} // To later integrate TV
           className="title"
         >
           {movie.title || movie.name}

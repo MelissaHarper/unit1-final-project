@@ -57,7 +57,6 @@ const marks = [
     label: "2020's",
   },
 ];
-console.log(marks.length);
 function valuetext(value) {
   return `${value}'s`;
 }

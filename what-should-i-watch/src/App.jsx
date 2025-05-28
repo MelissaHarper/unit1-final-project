@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 import NavBar from "./components/NavBar";
 import FilterContainer from "./components/FilterContainer";
 import Home from "./components/Home";
@@ -11,6 +13,21 @@ import "./App.css";
 import DateRangeFilter from "./components/DateRangeFilter";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(function () {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  if (loading) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
   return (
     <main>
       <div className="App">

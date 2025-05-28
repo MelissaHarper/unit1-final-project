@@ -15,7 +15,6 @@ const MovieCard = () => {
         to={`/${movie.first_air_date ? "tv" : "movie"}/detail/${movie.id}`} // To later integrate TV
         className="poster-container"
       >
-        {/* Image */}
         <LazyLoadImage
           className="poster"
           src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}

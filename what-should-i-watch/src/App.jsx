@@ -11,6 +11,7 @@ import Selection from "./components/Selection";
 import Recommendations from "./components/Recommendations";
 import "./App.css";
 import DateRangeFilter from "./components/DateRangeFilter";
+import MovieCard from "./components/MovieCard";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -39,6 +40,7 @@ function App() {
             <Route path="/recommendations" element={<Recommendations />} />
             <Route path="/filterContainer" element={<FilterContainer />} />
             <Route path="/dateFilter" element={<DateRangeFilter />} />
+            <Route path="/movieCard" element={<MovieCard />} />
             <Route
               path="/selection"
               element={

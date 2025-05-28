@@ -19,7 +19,7 @@ const Selection = ({ selectedMovie }) => {
   return (
     <div className="selection-wrapper">
       <img className="poster-fw" src={imgURL} alt={`${title} movie poster`} />
-      <section className="selection-info">
+      <section className="info">
         <h2>{title}</h2>
         {altTitle && <h3>Original Title: {original_title}</h3>}
         <p className="release-date">Release date: {release_date}</p>

@@ -1,4 +1,4 @@
-import options from "./call-structure.js";
+import { options } from "./call-structure.js";
 
 /*** Call Functions ***/
 export const searchByGenre = fetch(

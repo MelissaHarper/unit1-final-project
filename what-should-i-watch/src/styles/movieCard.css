@@ -1,4 +1,90 @@
-.poster {
-  width: 300px;
-  height: 450px;
+.movie-card {
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(229, 231, 235);
+  font-size: 100%;
+  /* background-color: rgb(255, 255, 255); */
+  padding: 1.5rem;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgb(0, 0, 0, 0.1),
+    0 4px 6px -4px rgb(0, 0, 0, 0.1);
+  /* transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms; */
 }
+
+.poster-container {
+  align-content: center;
+}
+
+img.poster {
+  filter: drop-shadow;
+  justify-self: center;
+  margin-bottom: 1rem;
+  height: 225px;
+  width: 150px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  margin: 10px 15px;
+}
+
+.title {
+  overflow: hidden;
+  display: flex;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  font-size: 3rem;
+  color: white;
+}
+
+.description {
+  text-align: left;
+  font-size: 1rem;
+}
+
+.extra-info {
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-start;
+  align-items: flex-end;
+  list-style-type: none;
+  /* justify-content: space-around; */
+  font-size: 1.3rem;
+  gap: 15px;
+  padding: 0;
+}
+
+/* .star {
+  /* margin-top: -3px; */
+/* width: 0.75rem;
+  color: rgb(234, 179, 8);
+} */
+
+@media screen and (max-width: 630px) {
+  .poster {
+    height: 50%;
+  }
+  .title {
+    font-size: ;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .poster {
+    height: 50%;
+  }
+}
+
+/* ,
+  
+          <img class="w-full h-48 object-cover mb-4 rounded-lg" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&auto=format" alt="Basic Card"/>,
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Getting Started with Development</h3>,
+          <p class="mt-2 text-gray-600 dark:text-gray-300">,Learn the fundamentals of modern web development with our comprehensive guide...</p>
+</div> */

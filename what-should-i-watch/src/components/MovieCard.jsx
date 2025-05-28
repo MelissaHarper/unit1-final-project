@@ -1,35 +1,27 @@
-import { BaseSyntheticEvent } from "react";
 import { Link } from "react-router-dom";
-import {
-  LazyLoadImage,
-  trackWindowScroll,
-} from "react-lazy-load-image-component";
-// Images
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Dummy from "../assets/images/logo.png";
-// Icons
 import { IconStarFilled } from "@tabler/icons-react";
-// Style effect
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
-
 import data from "../assets/data/mergedDummyData.json";
 import { getRandomElement } from "../shared/utils";
 import "../styles/movieCard.css";
 
 const MovieCard = () => {
   let movie = getRandomElement(data);
-  console.log(movie);
   return (
-    <>
+    <div className="movie-card">
       <Link
-        to={`/${movie.first_air_date ? "tv" : "movie"}/detail/${movie.id}`}
-        className="w-full h-auto md:h-[250px] lg:h-[300px] mb-3 rounded-2xl"
+        to={`/${movie.first_air_date ? "tv" : "movie"}/detail/${movie.id}`} // To later integrate TV
+        className="poster-container"
       >
         {/* Image */}
         <LazyLoadImage
+          className="poster"
           src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
           alt={movie.title || movie.original_title || movie.original_name}
-          useIntersectionObserver={true}
-          threshold={100}
+          //   useIntersectionObserver={true}
+          //   threshold={100}
           placeholderSrc={<div className="poster" />}
           onError={(event) => {
             event.currentTarget.onerror = null;
@@ -37,33 +29,35 @@ const MovieCard = () => {
           }}
           effect="black-and-white"
           width="100%"
-          className="w-full h-[220px] md:h-[250px] lg:h-[300px] object-center object-cover rounded-2xl cursor-pointer shadow-lg"
         />
       </Link>
-      {/* Movie name */}
-      <Link
-        to={`/${movie.first_air_date ? "tv" : "movie"}/detail/${movie.id}}`}
-        className="text-sm md:text-base text-slate-900 dark:text-slate-100 text-ellipsis mb-1 sm:mb-2 line-clamp-1 cursor-pointer"
-      >
-        {movie.title || movie.name}
-      </Link>
-      {/* Release date & rating */}
-      <div className="flex justify-between items-center">
-        <p className="text-xs md:text-sm text-slate-600 dark:text-zinc-400">
-          {movie.release_date?.split("-")[0] ||
-            movie.first_air_date?.split("-")[0]}
-        </p>
+      <div className="info">
+        <Link
+          to={`/${movie.first_air_date ? "tv" : "movie"}/detail/${movie.id}}`} // To later integrate TV
+          className="title"
+        >
+          {movie.title || movie.name}
+        </Link>
+        <p className="description"> {movie.overview}</p>{" "}
+        {/* // Movie description */}
+        <ul className="extra-info">
+          <li>
+            {movie.release_date?.split("-")[0] ||
+              movie.first_air_date?.split("-")[0]}
+          </li>
 
-        {Number(movie.vote_average) > 0 && (
-          <div className="flex justify-between items-center space-x-1">
-            <IconStarFilled className="w-3 md:w-4 text-yellow-500 dark:text-yellow-600 -mt-[3px]" />
-            <p className="text-xs md:text-sm text-slate-600 dark:text-zinc-400">
-              {String(movie.vote_average).substring(0, 3)}
-            </p>
-          </div>
-        )}
+          <li>
+            {" "}
+            {Number(movie.imdb_rating) > 0 && (
+              <>
+                <IconStarFilled color="rgb(234, 179, 8)" />
+                <>{String(movie.imdb_rating).substring(0, 3)}</>
+              </>
+            )}
+          </li>
+        </ul>
       </div>
-    </>
+    </div>
   );
 };
 

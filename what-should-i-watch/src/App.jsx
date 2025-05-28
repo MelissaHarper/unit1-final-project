@@ -7,17 +7,10 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import Selection from "./components/Selection";
 import Recommendations from "./components/Recommendations";
-import data from "./assets/data/mergedDummyData.json";
 import "./App.css";
+import DateRangeFilter from "./components/DateRangeFilter";
 
 function App() {
-  // State variable for selectedMovie
-  const [selectedMovie, setSelectedMovie] = useState(
-    data.map((obj) => {
-      return { ...obj };
-    })
-  );
-
   return (
     <main>
       <div className="App">
@@ -28,6 +21,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/recommendations" element={<Recommendations />} />
             <Route path="/filterContainer" element={<FilterContainer />} />
+            <Route path="/dateFilter" element={<DateRangeFilter />} />
             <Route
               path="/selection"
               element={

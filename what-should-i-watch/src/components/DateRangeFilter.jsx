@@ -1,6 +1,7 @@
-import * as React from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import { filterByDate } from "../shared/utils";
 
 const marks = [
   {
@@ -62,7 +63,7 @@ function valuetext(value) {
 }
 
 export default function DateRangeFilter() {
-  const [value, setValue] = React.useState([0, 100]);
+  const [value, setValue] = useState([0, 100]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -75,9 +76,9 @@ export default function DateRangeFilter() {
         defaultValue={100}
         onChange={handleChange}
         getAriaValueText={valuetext}
-        step={10}
+        step={7.7}
         marks={marks}
-        valueLabelDisplay="no"
+        valueLabelDisplay="off"
       />
     </Box>
   );

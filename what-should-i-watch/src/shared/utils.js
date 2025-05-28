@@ -9,6 +9,17 @@ export const selectRandom = (num) => {
   return "stuff";
 };
 
+export const filterByDate = (arr, dateRange) => {
+  let startDate = dateRange[0];
+  let endDate = dateRange[1];
+  let moviesByDate = arr.filter(
+    (movie) =>
+      movie.release_date.slice(0, 3) >= startDate &&
+      movie.release_date.slice(0, 3) <= endDate + 9
+  );
+  return moviesByDate;
+};
+
 export const genreOptions = [
   {
     value: 28,

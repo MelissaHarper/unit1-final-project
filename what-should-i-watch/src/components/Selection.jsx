@@ -1,15 +1,24 @@
 import React from "react";
-import posterFW from "../assets/images/stand-in-movie-poster.png";
+// import posterFW from "../assets/images/stand-in-movie-poster.png";
 import data from "../assets/data/mergedDummyData.json";
 import "../styles/Selection.css";
 
 const Selection = ({ selectedMovie }) => {
-  let { title, release_date, overview, original_title, genres, altTitle } =
-    data[1];
+  let {
+    title,
+    backdrop_path,
+    release_date,
+    overview,
+    original_title,
+    genres,
+    altTitle,
+  } = data[1];
+
+  let imgURL = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
 
   return (
     <div className="selection-wrapper">
-      <img className="poster-fw" src={posterFW} alt="Generic movie poster" />
+      <img className="poster-fw" src={imgURL} alt={`${title} movie poster`} />
       <section className="selection-info">
         <h2>{title}</h2>
         {altTitle && <h3>Original Title: {original_title}</h3>}

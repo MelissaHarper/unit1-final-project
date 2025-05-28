@@ -26,8 +26,8 @@ function App() {
               path="/selection"
               element={
                 <Selection
-                  selectedMovie={selectedMovie}
-                  setSelectedMovie={setSelectedMovie}
+                // selectedMovie={selectedMovie}
+                // setSelectedMovie={setSelectedMovie}
                 />
               }
             />
@@ -35,8 +35,8 @@ function App() {
               path="/footer"
               element={
                 <Footer
-                  selection={selectedMovie}
-                  setSelectedMovie={setSelectedMovie}
+                // selection={selectedMovie}
+                // setSelectedMovie={setSelectedMovie}
                 />
               }
             />

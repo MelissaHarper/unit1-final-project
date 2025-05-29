@@ -42,7 +42,7 @@ function App() {
             <Route path="/dateFilter" element={<DateRangeFilter />} />
             <Route path="/movieCard" element={<MovieCard />} />
             <Route
-              path="/selection/movie/detail/:movieId"
+              path="/selection/:type/detail/:id"
               element={
                 <Selection
                 // selectedMovie={selectedMovie}

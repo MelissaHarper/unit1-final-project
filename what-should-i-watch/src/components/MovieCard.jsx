@@ -9,10 +9,11 @@ import "../styles/movieCard.css";
 
 const MovieCard = () => {
   let movie = getRandomElement(data);
+  let type = "movie";
   return (
     <div className="movie-card">
       <Link
-        to={`/selection/movie/detail/${movie.id}`} // To later integrate TV
+        to={`/selection/${type}/detail/${movie.id}`} // To later integrate TV
       >
         <LazyLoadImage
           className="poster"

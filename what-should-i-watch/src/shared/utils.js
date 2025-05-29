@@ -8,11 +8,16 @@
 //   .then((res) => res.json())
 //   .catch((err) => console.error(err));
 
+export function getRandomNumber() {
+  let randomNumber = Math.floor(Math.random() * 100);
+  return randomNumber;
+}
+
 /*** Utility Functions ***/
-export const getRandomElement = (arr) => {
+export function getRandomElement(arr) {
   let randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
-};
+}
 
 export const filterByDate = (arr, dateRange) => {
   let startDate = dateRange[0];

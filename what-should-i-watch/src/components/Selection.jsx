@@ -3,13 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import LinearProgress from "@mui/material/LinearProgress";
-import {
-  getDetail,
-  getCredits,
-  getTrailers,
-  getReviews,
-  getRecommendation,
-} from "../shared/call-functions";
+import { getDetail, getCredits, getTrailers } from "../shared/call-functions";
 import { options } from "../shared/call-structure";
 // import posterFW from "../assets/images/stand-in-movie-poster.png";
 // import data from "../assets/data/mergedDummyData.json";
@@ -17,8 +11,6 @@ import "../styles/Selection.css";
 import DetailDescription from "./DetailDescription";
 import DetailCredits from "./DetailCredits";
 import DetailTrailers from "./DetailTrailers";
-import DetailReviews from "./DetailReviews";
-import MovieCard from "./MovieCard";
 
 const Selection = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -45,7 +37,7 @@ const Selection = () => {
   useEffect(() => {
     setTimeout(function () {
       setLoading(false);
-    }, 1000);
+    }, 5000);
   }, []);
 
   if (loading) {

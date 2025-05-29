@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Stack from "@mui/material/Stack";
+import LinearProgress from "@mui/material/LinearProgress";
 import {
   getDetail,
   getCredits,
@@ -8,9 +10,15 @@ import {
   getReviews,
   getRecommendation,
 } from "../shared/call-functions";
+import { options } from "../shared/call-structure";
 // import posterFW from "../assets/images/stand-in-movie-poster.png";
 // import data from "../assets/data/mergedDummyData.json";
 import "../styles/Selection.css";
+import DetailDescription from "./DetailDescription";
+import DetailCredits from "./DetailCredits";
+import DetailTrailers from "./DetailTrailers";
+import DetailReviews from "./DetailReviews";
+import MovieCard from "./MovieCard";
 
 const Selection = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -18,10 +26,35 @@ const Selection = () => {
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [detail, setDetail] = useState(null);
-  const [credits, setCredits] = useState([]);
+  const [displayedCredits, setDisplayedCredits] = useState([]);
   const [trailers, setTrailers] = useState([]);
-  const [reviews, setReviews] = useState([]);
-  const [recommendations, setRecommendations] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [visibleCreditsCount, setVisibleCreditsCount] = useState(1);
+
+  const payload = options;
+
+  const handleLoadMore = async () => {
+    const resCredits = await getCredits(type || "", id || "", payload);
+    if (resCredits.data)
+      setDisplayedCredits(
+        resCredits.data.cast.slice(0, visibleCreditsCount + 5)
+      );
+    setVisibleCreditsCount((prevCount) => prevCount + 5);
+  };
+
+  useEffect(() => {
+    setTimeout(function () {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  if (loading) {
+    <Stack sx={{ width: "100%", color: "grey.500" }} spacing={2}>
+      <LinearProgress color="secondary" />
+      <LinearProgress color="success" />
+      <LinearProgress color="inherit" />
+    </Stack>;
+  }
 
   // fetch('https://api.themoviedb.org/3/movie/movie_id?language=en-US', options)
   //   .then(res => res.json())
@@ -30,16 +63,14 @@ const Selection = () => {
 
   // Get Detail Movie
   const getDetailMovie = async () => {
-    const payload = {
-      api_key: apiKey,
-      language: "en-US",
-    };
-
     const resData = await getDetail(type || "", id || "", payload);
     if (resData.data) setDetail(resData.data);
 
     const resCredits = await getCredits(type || "", id || "", payload);
-    if (resCredits.data) setCredits(resCredits.data.cast);
+    if (resCredits.data)
+      setDisplayedCredits(
+        resCredits.data.cast.slice(0, visibleCreditsCount + 5)
+      );
 
     const resTrailers = await getTrailers(type || "", id || "", payload);
     if (resTrailers.data && resTrailers.data.results.length > 0)
@@ -54,31 +85,7 @@ const Selection = () => {
           .slice(0, 5)
       );
 
-    const resReviews = await getReviews(type || "", id || "", payload);
-    if (resReviews.data) {
-      setReviews(
-        resReviews.data.results.map((review) => {
-          review.read_more = false;
-          return review;
-        })
-      );
-    }
-
-    const resRecommendations = await getRecommendation(
-      type || "",
-      id || "",
-      payload
-    );
-    if (resRecommendations.data && resRecommendations.data.results.length > 0)
-      setRecommendations(resRecommendations.data.results);
-
-    Promise.all([
-      resData,
-      resCredits,
-      resTrailers,
-      resReviews,
-      resRecommendations,
-    ]).then(() => {
+    Promise.all([resData, resCredits, resTrailers]).then(() => {
       setIsLoading(false);
     });
     setIsFirstLoad(false);
@@ -87,10 +94,8 @@ const Selection = () => {
   // Reset data
   const resetData = () => {
     setDetail(null);
-    setCredits([]);
+    setDisplayedCredits([]);
     setTrailers([]);
-    setReviews([]);
-    setRecommendations([]);
   };
 
   // Mounted
@@ -112,17 +117,14 @@ const Selection = () => {
     detail && (
       <>
         {/* Banner, poster & description */}
-        {isLoading && <DetailDescriptionSkeleton />}
         {!isLoading && <DetailDescription movie={detail} />}
 
         <div className="container md:mt-16 mt-10 md:space-y-12 space-y-8">
           {/* Credits */}
           <div>
-            <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
-              Full Cast
-            </p>
-            {isLoading && <DetailCreditSkeleton />}
-            {!isLoading && <DetailCredits credits={credits} />}
+            <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3"></p>
+            {!isLoading && <DetailCredits credits={displayedCredits} />}
+            <button onClick={handleLoadMore}>Load More</button>
           </div>
 
           {/* Videos */}
@@ -130,39 +132,7 @@ const Selection = () => {
             <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
               Videos
             </p>
-            {isLoading && <DetailTrailerSkeleton />}
             {!isLoading && <DetailTrailers trailers={trailers} />}
-          </div>
-
-          {/* Reviews */}
-          <div>
-            <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
-              Reviews
-            </p>
-            {isLoading && <DetailReviewSkeleton />}
-            {!isLoading && <DetailReviews reviews={reviews} />}
-          </div>
-
-          {/* Recommendations */}
-          <div className="mt-8 pt-8 border-t dark:border-slate-800 border-slate-200">
-            <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
-              Recommendations
-            </p>
-            <div className="flex space-x-5 snap-x overflow-x-auto no-scrollbar scroll-smooth">
-              {!isLoading &&
-                recommendations.length > 0 &&
-                recommendations.map((recommendation) => {
-                  return (
-                    <div
-                      key={recommendation.id}
-                      className="min-w-[155px] md:min-w-[170px] lg:min-w-[180px] flex flex-col"
-                    >
-                      <MovieCard movie={recommendation} />
-                    </div>
-                  );
-                })}
-              {isLoading && <MovieCardSkeleton isHorizontal={true} />}
-            </div>
           </div>
         </div>
       </>

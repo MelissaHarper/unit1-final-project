@@ -3,7 +3,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import Dummy from "../assets/images/logo.png";
 import { IconStarFilled } from "@tabler/icons-react";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
-import data from "../assets/data/mergedDummyData.json";
+import data from "../assets/data/movies.json";
 import { getRandomElement } from "../shared/utils";
 import "../styles/movieCard.css";
 

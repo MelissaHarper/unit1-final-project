@@ -5,27 +5,35 @@ import Filter from "./Filter.jsx";
 import DateRangeFilter from "./DateRangeFilter.jsx";
 
 function FilterContainer() {
-  // const [value, setValue] = useState([0, 100]);
-
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
-
-  // // <DateRangeFilter value={value} handleChange={handleChange} />;
-
-  // // State variable for selectedMovie
-  // const [selectedMovie, setSelectedMovie] = useState(
-  //   data.map((obj) => {
-  //     return { ...obj };
-  //   })
-  // );
+  const [selectedGenre, setSelectedGenre] = useState(null);
+  // let genres = selectedGenre.map((obj) => {
+  //   return obj.value;
+  // });
 
   return (
     <div className="filter-container">
       {/* {value ? (
         <DateRangeFilter value={value} handleChange={handleChange} />
       ) : null} */}
-      <Filter />
+      <Filter
+        selectedGenre={selectedGenre}
+        setSelectedGenre={setSelectedGenre}
+      />
+      <p>
+        Search Parameters:{" "}
+        {selectedGenre.map((obj) => {
+          return `${obj.label}, `;
+        })}
+      </p>
+      <button
+        onClick={console.log(
+          selectedGenre.map((obj) => {
+            return obj.label;
+          })
+        )}
+      >
+        Get me my movies!
+      </button>
     </div>
   );
 }

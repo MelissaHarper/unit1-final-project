@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { getRandomNumber } from "../shared/utils";
+import "../styles/NavBar-Footer.css";
 
 const Footer = () => {
   const navigate = useNavigate();

@@ -1,8 +1,6 @@
 import "../styles/filterContainer.css";
 import { useState } from "react";
-import data from "../assets/data/mergedDummyData.json";
 import Filter from "./Filter.jsx";
-import DateRangeFilter from "./DateRangeFilter.jsx";
 
 function FilterContainer() {
   const [selectedGenre, setSelectedGenre] = useState(null);
@@ -19,21 +17,16 @@ function FilterContainer() {
         selectedGenre={selectedGenre}
         setSelectedGenre={setSelectedGenre}
       />
-      <p>
-        Search Parameters:{" "}
-        {selectedGenre.map((obj) => {
-          return `${obj.label}, `;
-        })}
-      </p>
-      <button
-        onClick={console.log(
-          selectedGenre.map((obj) => {
+
+      <button onClick={console.log(selectedGenre)}>Get me my movies!</button>
+      {selectedGenre && (
+        <p>
+          Search Parameters:{" "}
+          {selectedGenre.map((obj) => {
             return obj.label;
-          })
-        )}
-      >
-        Get me my movies!
-      </button>
+          })}
+        </p>
+      )}
     </div>
   );
 }

@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Selection from "./components/Selection";
 import Recommendations from "./components/Recommendations";
 import "./App.css";
+import jtLoading from "./assets/images/jt-loading.gif";
 import DateRangeFilter from "./components/DateRangeFilter";
 import MovieCard from "./components/MovieCard";
 
@@ -25,7 +26,7 @@ function App() {
   if (loading) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <CircularProgress />
+        <img src={jtLoading} alt="John Travolta looking around confused" />
       </Box>
     );
   }

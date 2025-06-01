@@ -1,5 +1,19 @@
 // import { options } from "./call-structure.js";
 
+// symbols in url that separate options within the same category (replaces a comma between ex: genres): %2C%20
+// but I just found something that showed you could leave the comma there, but no spaces between. , is and | is or
+// place an "&" before any filter category at the end of the URL
+
+export const apiQueryOptions = [
+  "with_watch_providers",
+  "with_original_language",
+  "with_origin_country",
+  "with_keywords",
+  "with_genres",
+  "with_cast",
+  "sort_by=popularity.desc",
+];
+
 /*** Call Functions ***/
 // export const searchByGenre = fetch(
 //   "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=16&with_runtime.gte=2147483647",
@@ -7,6 +21,10 @@
 // )
 //   .then((res) => res.json())
 //   .catch((err) => console.error(err));
+
+export const getGenreFilters = (arr) => {
+  return `${arr.value},`;
+};
 
 export function getRandomNumber() {
   let randomNumber = Math.floor(Math.random() * 100);

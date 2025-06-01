@@ -12,7 +12,10 @@ function Home() {
         <h1> What Should I Watch? </h1>
       </div>
       <div className="howTo">
-        <p> How to...</p>
+        <p>
+          Click the button below select what options you want included in your
+          search.
+        </p>
         <div className="startNow">
           <button onClick={handleRedirect}> Start Now </button>
         </div>

@@ -1,12 +1,23 @@
-import "../styles/filterContainer.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Filter from "./Filter.jsx";
+import MovieCard from "./MovieCard.jsx";
+import "../styles/filterContainer.css";
 
 function FilterContainer() {
   const [selectedGenre, setSelectedGenre] = useState(null);
-  // let genres = selectedGenre.map((obj) => {
-  //   return obj.value;
-  // });
+  const navigate = useNavigate();
+  let genres = [];
+
+  const handleButtonClick = () => {
+    selectedGenre !== null
+      ? ((genres = selectedGenre.map((obj) => {
+          return obj.value;
+        })),
+        (<MovieCard selectedGenre={genres} />),
+        navigate(`/recommendations`))
+      : navigate(`/recommendations`);
+  };
 
   return (
     <div className="filter-container">
@@ -18,15 +29,19 @@ function FilterContainer() {
         setSelectedGenre={setSelectedGenre}
       />
 
-      <button onClick={console.log(selectedGenre)}>Get me my movies!</button>
       {selectedGenre && (
-        <p>
-          Search Parameters:{" "}
-          {selectedGenre.map((obj) => {
-            return obj.label;
-          })}
-        </p>
+        <div className="confirmInput">
+          <h2>Search Parameters:</h2>
+          <p>
+            {selectedGenre.map((obj) => {
+              return `${obj.label} `;
+            })}
+          </p>
+        </div>
       )}
+      <button className="filter-button" onClick={handleButtonClick}>
+        Get me my movies!
+      </button>
     </div>
   );
 }

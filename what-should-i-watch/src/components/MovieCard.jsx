@@ -4,14 +4,27 @@ import Dummy from "../assets/images/logo.png";
 import { IconStarFilled } from "@tabler/icons-react";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
 import data from "../assets/data/movies.json";
+import { genreOptions } from "../shared/utils";
 import { getRandomElement } from "../shared/utils";
 import "../styles/movieCard.css";
 
-const MovieCard = () => {
+const MovieCard = ({ selectedGenre }) => {
+  const genre = !selectedGenre
+    ? genreOptions.map((obj) => {
+        return obj.value;
+      })
+    : selectedGenre.map((obj) => {
+        return obj.value;
+      });
   let movie = getRandomElement(data);
   let type = "movie";
+  function handleClick() {
+    console.log(genre);
+  }
+
   return (
     <div className="movie-card">
+      <button onClick={handleClick}>You will live!</button>
       <Link
         to={`/selection/${type}/detail/${movie.id}`} // To later integrate TV
       >
@@ -47,7 +60,7 @@ const MovieCard = () => {
             {" "}
             {Number(movie.imdb_rating) > 0 && (
               <>
-                <IconStarFilled color="rgb(234, 179, 8)" />
+                {/* <IconStarFilled color="rgb(234, 179, 8)" /> */}
                 <>{String(movie.imdb_rating).substring(0, 3)}</>
               </>
             )}

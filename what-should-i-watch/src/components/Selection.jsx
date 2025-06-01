@@ -13,7 +13,7 @@ import DetailCredits from "./DetailCredits";
 import DetailTrailers from "./DetailTrailers";
 
 const Selection = () => {
-  const apiKey = import.meta.env.VITE_API_KEY;
+  // const apiKey = import.meta.env.VITE_API_KEY;
   const { type, id } = useParams();
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
@@ -39,14 +39,6 @@ const Selection = () => {
       setLoading(false);
     }, 5000);
   }, []);
-
-  if (loading) {
-    <Stack sx={{ width: "100%", color: "grey.500" }} spacing={2}>
-      <LinearProgress color="secondary" />
-      <LinearProgress color="success" />
-      <LinearProgress color="inherit" />
-    </Stack>;
-  }
 
   // fetch('https://api.themoviedb.org/3/movie/movie_id?language=en-US', options)
   //   .then(res => res.json())
@@ -88,6 +80,7 @@ const Selection = () => {
     setDetail(null);
     setDisplayedCredits([]);
     setTrailers([]);
+    setVisibleCreditsCount(1);
   };
 
   // Mounted
@@ -102,6 +95,8 @@ const Selection = () => {
       resetData();
       setIsLoading(true);
       getDetailMovie();
+      setVisibleCreditsCount(1);
+      setDisplayedCredits([]);
     }
   }, [id]);
 

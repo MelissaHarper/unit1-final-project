@@ -1,6 +1,8 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import Stack from "@mui/material/Stack";
+import LinearProgress from "@mui/material/LinearProgress";
 import { getDetail, getCredits, getTrailers } from "../shared/call-functions";
 import { options } from "../shared/call-structure";
 import "../styles/Selection.css";
@@ -70,7 +72,7 @@ const Selection = () => {
     setVisibleCreditsCount(1);
   };
 
-  // When page mounts
+  // Mounted
   useEffect(() => {
     getDetailMovie();
   }, []);
@@ -90,25 +92,28 @@ const Selection = () => {
   return (
     <>
       {/* Banner, poster & description */}
-      {!isLoading && <DetailDescription movie={detail} />}
+      {!isLoading && detail && <DetailDescription movie={detail} />}
 
       <div className="container md:mt-16 mt-10 md:space-y-12 space-y-8">
         {/* Credits */}
         <div>
           <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3"></p>
           {!isLoading && <DetailCredits credits={displayedCredits} />}
-          <button onClick={handleLoadMore}>Load More</button>
+          {detail && <button onClick={handleLoadMore}>Load More</button>}
         </div>
 
         {/* Videos */}
         <div>
-          <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
-            Videos
-          </p>
-
+          {detail && (
+            <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
+              Videos
+            </p>
+          )}
           {!isLoading && <DetailTrailers trailers={trailers} />}
         </div>
       </div>
+
+      <p> {!detail && "We messed up, click that button again."}</p>
     </>
   );
 };

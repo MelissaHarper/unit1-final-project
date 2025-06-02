@@ -93,13 +93,13 @@ const Selection = () => {
     <>
       {console.log(`Html Return ${detail}`)}
       {/* Banner, poster & description */}
-      {(!isLoading, detail) && <DetailDescription movie={detail} />}
+      {!isLoading && <DetailDescription movie={detail} />}
 
       <div className="container md:mt-16 mt-10 md:space-y-12 space-y-8">
         {/* Credits */}
         <div>
           <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3"></p>
-          {(!isLoading, detail) && <DetailCredits credits={displayedCredits} />}
+          {!isLoading && <DetailCredits credits={displayedCredits} />}
           {detail && <button onClick={handleLoadMore}>Load More</button>}
         </div>
 
@@ -110,7 +110,7 @@ const Selection = () => {
               Videos
             </p>
           )}
-          {(!isLoading, detail) && <DetailTrailers trailers={trailers} />}
+          {!isLoading && <DetailTrailers trailers={trailers} />}
         </div>
       </div>
 

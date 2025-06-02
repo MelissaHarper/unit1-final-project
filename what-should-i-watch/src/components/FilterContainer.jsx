@@ -1,25 +1,16 @@
-import { useState, createContext, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Filter from "./Filter.jsx";
-import MovieCard from "./MovieCard.jsx";
 import Recommendations from "./Recommendations.jsx";
 import { genreOptions } from "../shared/utils";
 import "../styles/filterContainer.css";
 
 function FilterContainer() {
   const [selectedGenre, setSelectedGenre] = useState(genreOptions);
-  const UserContext = createContext();
-  // console.log(typeof selectedGenre);
+
   const navigate = useNavigate();
-  // let genres = [];
 
   const handleButtonClick = () => {
-    // selectedGenre !== null
-    //   ? ((genres = selectedGenre.map((obj) => {
-    //       return obj.value;
-    //     })),
-    //     (<MovieCard selectedGenre={genres} />),
-    //     navigate(`/recommendations`)):
     navigate(`/recommendations`);
   };
 
@@ -50,15 +41,9 @@ function FilterContainer() {
         Get me my movies!
       </button>
 
-      <UserContext.Provider value={selectedGenre}>
-        <section className="hidden">
-          <Recommendations selectedGenre={selectedGenre}></Recommendations>
-          {/* <MovieCard
-            selectedGenre={selectedGenre}
-            key={selectedGenre}
-          ></MovieCard> */}
-        </section>
-      </UserContext.Provider>
+      <section className="hidden">
+        <Recommendations selectedGenre={selectedGenre}></Recommendations>
+      </section>
     </div>
   );
 }

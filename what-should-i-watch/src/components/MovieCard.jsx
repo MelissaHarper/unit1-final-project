@@ -8,12 +8,11 @@ import { getRandomElement } from "../shared/utils";
 import "../styles/movieCard.css";
 
 const MovieCard = () => {
-  let movieId = getRandomElement(data);
-  let movie = getMovieById(movieId);
+  let movie = getRandomElement(data);
   return (
     <div className="movie-card">
       <Link
-        to={`movie/detail/${movie}`} // To later integrate TV
+        to={`movie/detail/${movie.id}`} // To later integrate TV
         className="poster-container"
       >
         {/* Image */}

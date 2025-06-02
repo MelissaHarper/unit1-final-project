@@ -108,47 +108,23 @@ const Selection = () => {
         <div>
           <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3"></p>
           {!isLoading && <DetailCredits credits={displayedCredits} />}
-          <button onClick={handleLoadMore}>Load More</button>
+          {detail && <button onClick={handleLoadMore}>Load More</button>}
         </div>
 
         {/* Videos */}
         <div>
-          <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
-            Videos
-          </p>
+          {detail && (
+            <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
+              Videos
+            </p>
+          )}
           {!isLoading && <DetailTrailers trailers={trailers} />}
         </div>
       </div>
     </>
   ) : (
-    <p>That movie doesn't seem to exist, click the button again.</p>
+    <p>We messed up, click that button again.</p>
   );
 };
 
 export default Selection;
-
-// let {
-//   title,
-//   backdrop_path,
-//   release_date,
-//   overview,
-//   original_title,
-//   genres,
-//   altTitle,
-// } = data[1];
-
-// let imgURL = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
-
-// return (
-//   <div className="selection-wrapper">
-//     <img className="poster-fw" src={imgURL} alt={`${title} movie poster`} />
-//     <section className="selection-info">
-//       <h2>{title}</h2>
-//       {altTitle && <h3>Original Title: {original_title}</h3>}
-//       <p className="release-date">Release date: {release_date}</p>
-//       <p className="overview">Overview {overview}</p>
-//       <p className="genres">Genres: {genres.sort().join(", ")}</p>
-//     </section>
-//   </div>
-// );
-// };

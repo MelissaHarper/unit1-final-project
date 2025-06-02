@@ -67,30 +67,30 @@ const Selection = () => {
     setIsFirstLoad(false);
   };
 
-  // // Reset data
-  // const resetData = () => {
-  //   setDetail(null);
-  //   setDisplayedCredits([]);
-  //   setTrailers([]);
-  //   setVisibleCreditsCount(1);
-  // };
+  // Reset data
+  const resetData = () => {
+    setDetail(null);
+    setDisplayedCredits([]);
+    setTrailers([]);
+    setVisibleCreditsCount(1);
+  };
 
-  // // Mounted
-  // useEffect(() => {
-  //   getDetailMovie();
-  // }, []);
+  // Mounted
+  useEffect(() => {
+    getDetailMovie();
+  }, []);
 
   // Refetch if params id is change
-  // useEffect(() => {
-  //   if (!isFirstLoad) {
-  //     window.scrollTo(0, 0);
-  //     resetData();
-  //     setIsLoading(true);
-  //     getDetailMovie();
-  //     setVisibleCreditsCount(1);
-  //     setDisplayedCredits([]);
-  //   }
-  // }, [id]);
+  useEffect(() => {
+    if (!isFirstLoad) {
+      window.scrollTo(0, 0);
+      resetData();
+      setIsLoading(true);
+      getDetailMovie();
+      setVisibleCreditsCount(1);
+      setDisplayedCredits([]);
+    }
+  }, [id]);
 
   return (
     <>

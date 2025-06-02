@@ -20,6 +20,10 @@ div {
   margin-top: 4rem;
 }
 
+.hidden {
+  display: none;
+}
+
 ._i4oq7w {
   display: flex !important;
   flex-direction: column !important;

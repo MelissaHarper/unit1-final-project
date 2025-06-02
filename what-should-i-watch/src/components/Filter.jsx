@@ -25,7 +25,7 @@ const Filter = ({ selectedGenre, setSelectedGenre }) => {
     <div>
       {selectedGenre !== undefined ? (
         <Select
-          defaultValue={selectedGenre}
+          // defaultValue={selectedGenre}
           onChange={setSelectedGenre}
           closeMenuOnSelect={false}
           components={animatedComponents}

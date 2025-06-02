@@ -1,20 +1,29 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Dummy from "../assets/images/logo.png";
 import { IconStarFilled } from "@tabler/icons-react";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
 import data from "../assets/data/movies.json";
 import { getRandomElement } from "../shared/utils";
+import UserContext from "./FilterContainer";
 import "../styles/movieCard.css";
 
 const MovieCard = ({ selectedGenre }) => {
-  const genre = selectedGenre.map((obj) => {
-    return obj.value;
+  // const  = useContext(UserContext);
+  const genres = selectedGenre.map((obj) => {
+    for (let index in obj) {
+      return obj[index];
+    }
   });
+
+  console.log(genres);
+
   let movie = getRandomElement(data);
   let type = "movie";
+
   function handleClick() {
-    console.log(genre);
+    console.log(selectedGenre);
   }
 
   return (

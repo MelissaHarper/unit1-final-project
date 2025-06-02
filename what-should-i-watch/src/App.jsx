@@ -36,10 +36,10 @@ function App() {
         <BrowserRouter>
           <NavBar />
           <Routes>
-            <Route index element={<FilterContainer />} />
+            <Route index element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/recommendations" element={<Recommendations />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/filterContainer" element={<FilterContainer />} />
             <Route path="/dateFilter" element={<DateRangeFilter />} />
             <Route path="/movieCard" element={<MovieCard />} />
             <Route

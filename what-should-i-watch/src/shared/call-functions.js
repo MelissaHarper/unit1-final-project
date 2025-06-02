@@ -1,4 +1,3 @@
-@@ -0,0 +1,116 @@
 import { api } from "./call-structure";
 import { useNavigate } from "react-router-dom";
 const navigate = useNavigate;

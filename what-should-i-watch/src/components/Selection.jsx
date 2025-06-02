@@ -94,7 +94,7 @@ const Selection = () => {
     }
   }, [id]);
 
-  return detail ? (
+  return (
     <>
       {console.log(`Html Return ${detail}`)}
       {/* Banner, poster & description */}
@@ -118,12 +118,9 @@ const Selection = () => {
           {(!isLoading, detail) && <DetailTrailers trailers={trailers} />}
         </div>
       </div>
+
+      <p> {!detail && "We messed up, click that button again."}</p>
     </>
-  ) : (
-    <p>
-      We messed up, click that button again.{" "}
-      {console.log(`Error Return ${detail}`)}
-    </p>
   );
 };
 

@@ -1,14 +1,20 @@
 import MovieCard from "./MovieCard";
 import "../styles/recommendations.css";
 
-const Recommendations = ({ selectedGenre }) => {
+const Recommendations = ({ isOpen, onClose, selectedGenre }) => {
+  if (!isOpen) return null;
+
   return (
-    <div className="recommend-grid">
-      <MovieCard selectedGenre={selectedGenre} />
-      <MovieCard selectedGenre={selectedGenre} />
-      <MovieCard selectedGenre={selectedGenre} />
-      <MovieCard selectedGenre={selectedGenre} />
-      <MovieCard selectedGenre={selectedGenre} />
+    <div className="modal" onClick={onClose}>
+      <div className="modal-background">
+        <div className="recommend-grid">
+          <MovieCard selectedGenre={selectedGenre} />
+          <MovieCard selectedGenre={selectedGenre} />
+          <MovieCard selectedGenre={selectedGenre} />
+          <MovieCard selectedGenre={selectedGenre} />
+          <MovieCard selectedGenre={selectedGenre} />
+        </div>
+      </div>
     </div>
   );
 };

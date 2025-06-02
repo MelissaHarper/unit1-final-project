@@ -2,29 +2,26 @@ import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Dummy from "../assets/images/logo.png";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
-import data from "../assets/data/movies.json";
-import { getRandomElement } from "../shared/utils";
+// import { options } from "../shared/call-structure";
+import { getRandomElement, searchByGenre } from "../shared/utils";
+// import { getByGenre } from "../shared/call-functions";
 import "../styles/movieCard.css";
 
 const MovieCard = ({ selectedGenre }) => {
   const genres = selectedGenre.map((obj) => {
-    for (let index in obj) {
-      return obj[index];
-    }
+    return obj.value;
   });
 
-  console.log(genres);
-
-  let movie = getRandomElement(data);
+  // const payload = options;
+  const movieOptions = searchByGenre(genres);
+  console.log(`This is Bullshit ${movieOptions}`);
+  // let movie = getRandomElement(movieOptions);
+  let movie = movieOptions[0];
+  console.log(`This is the ${movie}`);
   let type = "movie";
-
-  function handleClick() {
-    console.log(selectedGenre);
-  }
 
   return (
     <div className="movie-card">
-      <button onClick={handleClick}>You will live!</button>
       <Link
         to={`/selection/${type}/detail/${movie.id}`} // To later integrate TV
       >

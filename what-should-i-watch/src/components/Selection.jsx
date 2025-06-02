@@ -5,8 +5,6 @@ import Stack from "@mui/material/Stack";
 import LinearProgress from "@mui/material/LinearProgress";
 import { getDetail, getCredits, getTrailers } from "../shared/call-functions";
 import { options } from "../shared/call-structure";
-// import posterFW from "../assets/images/stand-in-movie-poster.png";
-// import data from "../assets/data/mergedDummyData.json";
 import "../styles/Selection.css";
 import DetailDescription from "./DetailDescription";
 import DetailCredits from "./DetailCredits";

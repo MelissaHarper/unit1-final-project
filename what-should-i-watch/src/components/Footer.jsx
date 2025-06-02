@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { getRandomNumber } from "../shared/utils";
+// import { getRandomElement } from "../shared/utils";
+// import data from "../assets/data/mergedDummyData.json";
 import "../styles/NavBar-Footer.css";
 
 const Footer = () => {
   const navigate = useNavigate();
-  const movieID = getRandomNumber();
+  // let movie = getRandomElement(data);
 
   const handleRedirect = () => {
-    navigate(`/selection/movie/detail/${movieID}`);
+    navigate(`/recommendations`);
   };
-  //Button takes you to the same place, but returns a different result depending on which one is pushed. Getters and Setters?
   return (
     <footer>
       <button className="random-all" onClick={handleRedirect}>

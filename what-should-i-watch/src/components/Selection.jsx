@@ -1,8 +1,6 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Stack from "@mui/material/Stack";
-import LinearProgress from "@mui/material/LinearProgress";
+
 import { getDetail, getCredits, getTrailers } from "../shared/call-functions";
 import { options } from "../shared/call-structure";
 import "../styles/Selection.css";
@@ -72,7 +70,7 @@ const Selection = () => {
     setVisibleCreditsCount(1);
   };
 
-  // Mounted
+  // When page mounts
   useEffect(() => {
     getDetailMovie();
   }, []);

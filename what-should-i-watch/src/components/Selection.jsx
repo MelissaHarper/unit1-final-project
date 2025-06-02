@@ -111,8 +111,6 @@ const Selection = () => {
           {!isLoading && <DetailTrailers trailers={trailers} />}
         </div>
       </div>
-
-      <p> {!detail && "We messed up, click that button again."}</p>
     </>
   );
 };

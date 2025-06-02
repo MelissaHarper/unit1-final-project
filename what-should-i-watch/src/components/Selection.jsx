@@ -49,19 +49,17 @@ const Selection = () => {
       );
 
     const resTrailers = await getTrailers(type || "", id || "", payload);
-    if (detail) {
-      if (resTrailers.data && resTrailers.data.results.length > 0)
-        setTrailers(
-          resTrailers.data.results
-            .filter(
-              (trailer) =>
-                trailer.site === "YouTube" &&
-                (trailer.type === "Teaser" || trailer.type === "Trailer") &&
-                trailer.official
-            )
-            .slice(0, 5)
-        );
-    }
+    if (resTrailers.data && resTrailers.data.results.length > 0)
+      setTrailers(
+        resTrailers.data.results
+          .filter(
+            (trailer) =>
+              trailer.site === "YouTube" &&
+              (trailer.type === "Teaser" || trailer.type === "Trailer") &&
+              trailer.official
+          )
+          .slice(0, 5)
+      );
 
     Promise.all([resData, resCredits, resTrailers]).then(() => {
       setIsLoading(false);

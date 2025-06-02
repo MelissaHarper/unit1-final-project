@@ -9,6 +9,7 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import Selection from "./components/Selection";
 import Recommendations from "./components/Recommendations";
+import Feedback from "./components/Feedback";
 import "./App.css";
 import jtLoading from "./assets/images/jt-loading.gif";
 import DateRangeFilter from "./components/DateRangeFilter";
@@ -42,6 +43,7 @@ function App() {
             <Route path="/filterContainer" element={<FilterContainer />} />
             <Route path="/dateFilter" element={<DateRangeFilter />} />
             <Route path="/movieCard" element={<MovieCard />} />
+            <Route path="/feedback" element={<Feedback />} />
             <Route
               path="/selection/:type/detail/:id"
               element={

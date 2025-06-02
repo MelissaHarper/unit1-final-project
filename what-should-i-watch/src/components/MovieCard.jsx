@@ -12,16 +12,13 @@ const MovieCard = () => {
   return (
     <div className="movie-card">
       <Link
-        to={`/selection/movie/detail/${movie.id}`} // To later integrate TV
+        to={`/selection/movie/detail/${movie.id}`}
         className="poster-container"
       >
-        {/* Image */}
         <LazyLoadImage
           className="poster"
           src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
           alt={movie.title || movie.original_title || movie.original_name}
-          //   useIntersectionObserver={true}
-          //   threshold={100}
           placeholderSrc={<div className="poster" />}
           onError={(event) => {
             event.currentTarget.onerror = null;
@@ -33,7 +30,7 @@ const MovieCard = () => {
       </Link>
       <div className="info">
         <Link
-          to={`/${movie.first_air_date ? "tv" : "movie"}/detail/${movie.id}}`} // To later integrate TV
+          to={`/${movie.first_air_date ? "tv" : "movie"}/detail/${movie.id}}`}
           className="title"
         >
           {movie.title || movie.name}

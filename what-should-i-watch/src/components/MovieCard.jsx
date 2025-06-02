@@ -1,34 +1,28 @@
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Dummy from "../assets/images/logo.png";
+// import { IconStarFilled } from "@tabler/icons-react";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
-// import { options } from "../shared/call-structure";
-import { getRandomElement, searchByGenre } from "../shared/utils";
-// import { getByGenre } from "../shared/call-functions";
+import data from "../assets/data/movie-ids.js";
+import { getMovieById, getRandomElement } from "../shared/utils";
 import "../styles/movieCard.css";
 
-const MovieCard = ({ selectedGenre }) => {
-  const genres = selectedGenre.map((obj) => {
-    return obj.value;
-  });
-
-  // const payload = options;
-  const movieOptions = searchByGenre(genres);
-  console.log(`This is Bullshit ${movieOptions}`);
-  // let movie = getRandomElement(movieOptions);
-  let movie = movieOptions[0];
-  console.log(`This is the ${movie}`);
-  let type = "movie";
-
+const MovieCard = () => {
+  let movieId = getRandomElement(data);
+  let movie = getMovieById(movieId);
   return (
     <div className="movie-card">
       <Link
-        to={`/selection/${type}/detail/${movie.id}`} // To later integrate TV
+        to={`movie/detail/${movie}`} // To later integrate TV
+        className="poster-container"
       >
+        {/* Image */}
         <LazyLoadImage
           className="poster"
           src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
           alt={movie.title || movie.original_title || movie.original_name}
+          //   useIntersectionObserver={true}
+          //   threshold={100}
           placeholderSrc={<div className="poster" />}
           onError={(event) => {
             event.currentTarget.onerror = null;
@@ -40,7 +34,7 @@ const MovieCard = ({ selectedGenre }) => {
       </Link>
       <div className="info">
         <Link
-          to={`/selection/movie/detail/${movie.id}}`} // To later integrate TV
+          to={`/${movie.first_air_date ? "tv" : "movie"}/detail/${movie.id}}`} // To later integrate TV
           className="title"
         >
           {movie.title || movie.name}

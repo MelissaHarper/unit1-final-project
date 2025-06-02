@@ -7,7 +7,7 @@ const Footer = () => {
   const movieID = getRandomNumber();
 
   const handleRedirect = () => {
-    navigate(`/selection/movie/detail/${movieID}}`);
+    navigate(`/selection/movie/detail/${movieID}`);
   };
   //Button takes you to the same place, but returns a different result depending on which one is pushed. Getters and Setters?
   return (

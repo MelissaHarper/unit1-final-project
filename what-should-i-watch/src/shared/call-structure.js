@@ -9,6 +9,7 @@ export const options = {
   headers: {
     accept: "application/json",
     Authorization: authorization,
+    validateStatus: false,
   },
 };
 

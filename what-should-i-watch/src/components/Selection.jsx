@@ -121,7 +121,7 @@ const Selection = () => {
       </div>
     </>
   ) : (
-    <p>Something went wrong, click it again.</p>
+    <p>That movie doesn't seem to exist, click the button again.</p>
   );
 };
 

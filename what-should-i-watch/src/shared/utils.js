@@ -43,7 +43,7 @@ export const formatGenreFilters = (arr) => {
 };
 
 export function getRandomNumber() {
-  let randomNumber = Math.floor(Math.random() * 100);
+  let randomNumber = Math.floor(Math.random() * 80000);
   return randomNumber;
 }
 

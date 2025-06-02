@@ -43,10 +43,7 @@ const Selection = () => {
     if (resData.data) setDetail(resData.data);
 
     const resCredits = await getCredits(type || "", id || "", payload);
-    if (detail)
-      setDisplayedCredits(
-        resCredits.data.cast.slice(0, visibleCreditsCount + 5)
-      );
+    setDisplayedCredits(resCredits.data.cast.slice(0, visibleCreditsCount + 5));
 
     const resTrailers = await getTrailers(type || "", id || "", payload);
     if (resTrailers.data && resTrailers.data.results.length > 0)

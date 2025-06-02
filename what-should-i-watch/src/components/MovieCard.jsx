@@ -4,18 +4,13 @@ import Dummy from "../assets/images/logo.png";
 import { IconStarFilled } from "@tabler/icons-react";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
 import data from "../assets/data/movies.json";
-import { genreOptions } from "../shared/utils";
 import { getRandomElement } from "../shared/utils";
 import "../styles/movieCard.css";
 
 const MovieCard = ({ selectedGenre }) => {
-  const genre = !selectedGenre
-    ? genreOptions.map((obj) => {
-        return obj.value;
-      })
-    : selectedGenre.map((obj) => {
-        return obj.value;
-      });
+  const genre = selectedGenre.map((obj) => {
+    return obj.value;
+  });
   let movie = getRandomElement(data);
   let type = "movie";
   function handleClick() {

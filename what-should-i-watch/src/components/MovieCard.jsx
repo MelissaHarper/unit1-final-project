@@ -12,7 +12,7 @@ const MovieCard = () => {
   return (
     <div className="movie-card">
       <Link
-        to={`selection/movie/detail/${movie.id}`} // To later integrate TV
+        to={`/selection/movie/detail/${movie.id}`} // To later integrate TV
         className="poster-container"
       >
         {/* Image */}

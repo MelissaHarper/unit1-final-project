@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import LinearProgress from "@mui/material/LinearProgress";
 import { getDetail, getCredits, getTrailers } from "../shared/call-functions";
-import { options } from "../shared/call-structure";
+import { options } from "../shared/call-structure.js";
 import "../styles/Selection.css";
 import DetailDescription from "./DetailDescription";
 import DetailCredits from "./DetailCredits";

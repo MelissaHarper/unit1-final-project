@@ -18,7 +18,6 @@ const Selection = () => {
   const [detail, setDetail] = useState(null);
   const [displayedCredits, setDisplayedCredits] = useState([]);
   const [trailers, setTrailers] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [visibleCreditsCount, setVisibleCreditsCount] = useState(1);
 
   const payload = options;
@@ -34,14 +33,9 @@ const Selection = () => {
 
   useEffect(() => {
     setTimeout(function () {
-      setLoading(false);
+      setIsLoading(false);
     }, 5000);
   }, []);
-
-  // fetch('https://api.themoviedb.org/3/movie/movie_id?language=en-US', options)
-  //   .then(res => res.json())
-  //   .then(res => console.log(res))
-  //   .catch(err => console.error(err));
 
   // Get Detail Movie
   const getDetailMovie = async () => {
@@ -102,6 +96,7 @@ const Selection = () => {
 
   return detail ? (
     <>
+      {console.log(`Html Return ${detail}`)}
       {/* Banner, poster & description */}
       {!isLoading && <DetailDescription movie={detail} />}
 
@@ -109,7 +104,7 @@ const Selection = () => {
         {/* Credits */}
         <div>
           <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3"></p>
-          {!isLoading && <DetailCredits credits={displayedCredits} />}
+          {(!isLoading, detail) && <DetailCredits credits={displayedCredits} />}
           {detail && <button onClick={handleLoadMore}>Load More</button>}
         </div>
 
@@ -120,12 +115,15 @@ const Selection = () => {
               Videos
             </p>
           )}
-          {!isLoading && <DetailTrailers trailers={trailers} />}
+          {(!isLoading, detail) && <DetailTrailers trailers={trailers} />}
         </div>
       </div>
     </>
   ) : (
-    <p>We messed up, click that button again.</p>
+    <p>
+      We messed up, click that button again.{" "}
+      {console.log(`Error Return ${detail}`)}
+    </p>
   );
 };
 

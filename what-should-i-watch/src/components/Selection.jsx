@@ -91,7 +91,6 @@ const Selection = () => {
 
   return (
     <>
-      {console.log(`Html Return ${detail}`)}
       {/* Banner, poster & description */}
       {!isLoading && <DetailDescription movie={detail} />}
 
@@ -100,16 +99,15 @@ const Selection = () => {
         <div>
           <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3"></p>
           {!isLoading && <DetailCredits credits={displayedCredits} />}
-          {detail && <button onClick={handleLoadMore}>Load More</button>}
+          <button onClick={handleLoadMore}>Load More</button>
         </div>
 
         {/* Videos */}
         <div>
-          {detail && (
-            <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
-              Videos
-            </p>
-          )}
+          <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
+            Videos
+          </p>
+
           {!isLoading && <DetailTrailers trailers={trailers} />}
         </div>
       </div>

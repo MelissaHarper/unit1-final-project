@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 .filter-container {
   position: relative;
   box-sizing: border-box;

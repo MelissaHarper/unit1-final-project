@@ -44,24 +44,8 @@ function App() {
             <Route path="/dateFilter" element={<DateRangeFilter />} />
             <Route path="/movieCard" element={<MovieCard />} />
             <Route path="/feedback" element={<Feedback />} />
-            <Route
-              path="/selection/:type/detail/:id"
-              element={
-                <Selection
-                // selectedMovie={selectedMovie}
-                // setSelectedMovie={setSelectedMovie}
-                />
-              }
-            />
-            <Route
-              path="/footer"
-              element={
-                <Footer
-                // selection={selectedMovie}
-                // setSelectedMovie={setSelectedMovie}
-                />
-              }
-            />
+            <Route path="/selection/:type/detail/:id" element={<Selection />} />
+            <Route path="/footer" element={<Footer />} />
           </Routes>
           <Footer />
         </BrowserRouter>

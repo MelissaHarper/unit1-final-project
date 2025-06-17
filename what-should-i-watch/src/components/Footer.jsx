@@ -1,11 +1,8 @@
 import { useNavigate } from "react-router-dom";
-// import { getRandomElement } from "../shared/utils";
-// import data from "../assets/data/mergedDummyData.json";
 import "../styles/NavBar-Footer.css";
 
 const Footer = () => {
   const navigate = useNavigate();
-  // let movie = getRandomElement(data);
 
   const handleRedirect = () => {
     navigate(`/recommendations`);

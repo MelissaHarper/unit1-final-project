@@ -38,12 +38,6 @@ div {
   overscroll-behavior: none !important;
   min-width: 1000px !important;
 }
-/* :root {
-  --sat: env(safe-area-inset-top);
-  --sab: env(safe-area-inset-bottom);
-  --sal: env(safe-area-inset-left);
-  --sar: env(safe-area-inset-right);
-} */
 
 :root {
   --swiper-navigation-size: 44px;

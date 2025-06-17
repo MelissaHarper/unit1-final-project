@@ -59,11 +59,11 @@ function FilterContainer() {
       <button className="filter-button" onClick={handleOpen}>
         Get me my movies!
       </button>
-      <Recommendations
+      {/* <Recommendations
         isOpen={open}
         onclose={handleClose}
         selectedGenre={selectedGenre !== null ? selectedGenre : allGenres}
-      ></Recommendations>
+      ></Recommendations> */}
     </div>
   );
 }

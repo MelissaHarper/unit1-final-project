@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Dummy from "../assets/images/logo.png";
-// import { IconStarFilled } from "@tabler/icons-react";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
 import data from "../assets/data/mergedDummyData.json";
 import { getRandomElement } from "../shared/utils";
@@ -29,10 +28,7 @@ const MovieCard = () => {
         />
       </Link>
       <div className="info">
-        <Link
-          to={`/${movie.first_air_date ? "tv" : "movie"}/detail/${movie.id}}`}
-          className="title"
-        >
+        <Link to={`/selection/movie/detail/${movie.id}`} className="title">
           {movie.title || movie.name}
         </Link>
         <p className="description"> {movie.overview}</p>{" "}
@@ -47,7 +43,6 @@ const MovieCard = () => {
             {" "}
             {Number(movie.imdb_rating) > 0 && (
               <>
-                {/* <IconStarFilled color="rgb(234, 179, 8)" /> */}
                 <>{String(movie.imdb_rating).substring(0, 3)}</>
               </>
             )}

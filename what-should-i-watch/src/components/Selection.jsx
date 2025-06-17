@@ -9,7 +9,6 @@ import DetailCredits from "./DetailCredits";
 import DetailTrailers from "./DetailTrailers";
 
 const Selection = () => {
-  // const apiKey = import.meta.env.VITE_API_KEY;
   const { type, id } = useParams();
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
@@ -100,10 +99,10 @@ const Selection = () => {
           <button onClick={handleLoadMore}>Load More</button>
         </div>
 
-        {/* Videos */}
+        {/* Trailers */}
         <div>
           <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
-            Videos
+            Trailers
           </p>
 
           {!isLoading && <DetailTrailers trailers={trailers} />}

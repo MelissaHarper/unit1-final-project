@@ -1,27 +1,17 @@
-@import "tailwindcss";
+/* @import "tailwindcss";*/
 
-.selection-wrapper {
+/* .selection-wrapper {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 100%;
   padding-left: 10px;
-}
+}*/
 
-.poster-fw {
-  width: 40%;
-  border-width: 0;
-  overflow: hidden;
-  border-radius: 8px;
-  margin-left: 10px;
-}
-
-#selection-info {
-  flex: 50%;
-  height: 100%;
+.detail-container {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  margin-top: 2rem;
+  flex-direction: column;
 }
 
 .backdrop {
@@ -32,15 +22,159 @@
   background-position: center;
 }
 
+.backdrop-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.poster-container {
+  margin-left: 0.5rem;
+}
+
+.poster {
+  border-radius: 0.75rem;
+  width: 160px;
+  height: 240px;
+}
+
+.poster-blur {
+  position: absolute;
+  top: 0.5rem;
+  border-radius: 0.5rem;
+  opacity: 0.3;
+  filter: blur(16px);
+  width: 160px;
+  height: 240px;
+  z-index: -10;
+}
+
+.selection-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: calc(0.75rem * calc(1 - 0));
+  margin-bottom: calc(0.75rem * 0);
+  margin-left: 0.5rem;
+}
+
+.title {
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  margin-left: 0.5rem;
+}
+
+.year-language {
+  display: flex;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  margin-left: calc(0.5rem * calc(1 - 0));
+}
+
+.genre-container {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-left: 0.45rem;
+  overflow-x: auto;
+}
+
+.genre {
+  white-space: nowrap;
+  border-radius: 0.25rem;
+  background-color: rgba(10, 10, 10, 0.5);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+.description {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  margin-left: 0.5rem;
+}
+
 .credits-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   gap: 1rem;
-  margin-top: calc(2rem * calc(1 - 0));
-  margin-bottom: calc(2rem * 0);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 .credits-card {
   display: flex;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+@media (min-width: 768px) {
+  .selection-wrapper {
+    margin-top: 4rem;
+    margin-top: 3rem;
+  }
+  .credits-card {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  .detail-container {
+    margin-left: 2.5rem;
+    flex-direction: row;
+  }
+  .poster {
+    width: 170px;
+    height: 270px;
+  }
+  .poster-blur {
+    width: 170px;
+    height: 270px;
+  }
+  .title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .poster {
+    width: 190px;
+    height: 290px;
+  }
+  .poster-blur {
+    width: 190px;
+    height: 290px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .credits-card {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .poster {
+    width: 170px;
+    height: 270px;
+  }
+  .poster-blur {
+    width: 220px;
+    height: 330px;
+  }
+  .title {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
 }

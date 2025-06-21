@@ -1,24 +1,25 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
 import { getDetail, getCredits, getTrailers } from "../shared/call-functions";
 import { options } from "../shared/call-structure";
+import SelectionDescription from "./SelectionDescriptionCard";
+import SelectionCredits from "./SelectionsCreditsCard";
+import SelectionTrailers from "./SelectionTrailersCard";
 import "../styles/Selection.css";
-import DetailDescription from "./DetailDescription";
-import DetailCredits from "./DetailCredits";
-import DetailTrailers from "./DetailTrailers";
 
 const Selection = () => {
   const { type, id } = useParams();
+  // Use States
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [detail, setDetail] = useState(null);
   const [displayedCredits, setDisplayedCredits] = useState([]);
   const [trailers, setTrailers] = useState([]);
-  const [visibleCreditsCount, setVisibleCreditsCount] = useState(1);
+  const [visibleCreditsCount, setVisibleCreditsCount] = useState(0);
 
   const payload = options;
 
+  // Load more cast credits
   const handleLoadMore = async () => {
     const resCredits = await getCredits(type || "", id || "", payload);
     if (resCredits.data)
@@ -27,14 +28,14 @@ const Selection = () => {
       );
     setVisibleCreditsCount((prevCount) => prevCount + 5);
   };
-
+  // Loading Image
   useEffect(() => {
     setTimeout(function () {
       setIsLoading(false);
     }, 5000);
   }, []);
 
-  // Get Detail Movie
+  // Get Movie Details
   const getDetailMovie = async () => {
     const resData = await getDetail(type || "", id || "", payload);
     if (resData.data) setDetail(resData.data);
@@ -89,13 +90,13 @@ const Selection = () => {
   return (
     <>
       {/* Banner, poster & description */}
-      {!isLoading && <DetailDescription movie={detail} />}
+      {!isLoading && <SelectionDescription movie={detail} />}
 
-      <div className="container md:mt-16 mt-10 md:space-y-12 space-y-8">
+      <div className="credits-container">
         {/* Credits */}
         <div>
-          <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3"></p>
-          {!isLoading && <DetailCredits credits={displayedCredits} />}
+          <p className="credits"></p>
+          {!isLoading && <SelectionCredits credits={displayedCredits} />}
           <button onClick={handleLoadMore}>Load More</button>
         </div>
 
@@ -105,7 +106,7 @@ const Selection = () => {
             Trailers
           </p>
 
-          {!isLoading && <DetailTrailers trailers={trailers} />}
+          {!isLoading && <SelectionTrailers trailers={trailers} />}
         </div>
       </div>
     </>

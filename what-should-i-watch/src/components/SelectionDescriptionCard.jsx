@@ -25,7 +25,7 @@ const DetailDescription = ({ movie }) => {
             alt={movie.name}
             className="backdrop"
           />
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t dark:from-background from-background-light dark:via-background/90 via-background-light/20 dark:via-20% via-50% dark:to-background/10 to-background-light/5 to-70%" />
+          <div className="backdrop-gradient" />
         </div>
       )}
 
@@ -34,56 +34,48 @@ const DetailDescription = ({ movie }) => {
           movie.backdrop_path ? "md:-mt-52 -mt-28" : "mt-32"
         } z-10`}
       >
-        <div className="flex md:flex-row flex-col md:space-x-10 space-y-8">
+        <div className="detail-container">
           {/* Poster */}
-          <div className="relative">
+          <div className="poster-container">
             <img
               src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
               alt={movie.title || movie.name}
-              className="rounded-xl xl:w-[220px] lg:w-[190px] md:w-[170px] w-[160px] xl:min-w-[220px] lg:min-w-[190px] md:min-w-[170px] min-w-[160px] xl:h-[330px] lg:h-[290px] md:h-[270px] h-[240px] xl:min-h-[330px] lg:min-h-[290px] md:min-h-[270px] min-h-[240px]"
+              className="poster"
               onError={onErrorImage}
             />
             <img
               src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
               alt={movie.title || movie.name}
-              className="absolute top-2 rounded-lg blur-lg -z-10 opacity-30 xl:w-[220px] lg:w-[190px] md:w-[170px] w-[160px] xl:min-w-[220px] lg:min-w-[190px] md:min-w-[170px] min-w-[160px] xl:h-[330px] lg:h-[290px] md:h-[270px] h-[240px] xl:min-h-[330px] lg:min-h-[290px] md:min-h-[270px] min-h-[240px]"
+              className="poster-blur"
               onError={onErrorImage}
             />
           </div>
 
           {/* Title, release year, language, genres, description */}
-          <div className="flex flex-col mt-16 space-y-3">
+          <div className="selection-info">
             {/* Title */}
-            <h1 className="tracking-wide font-bold xl:text-3xl md:text-2xl text-slate-950 dark:text-slate-100">
+            <h1 className="title">
               {movie.original_name || movie.original_title}
             </h1>
 
             {/* Release year & language */}
             {movie.spoken_languages.length > 0 && (
-              <p className="font-medium text-sm text-slate-950 dark:text-slate-100">
-                {releaseDate} &#9679; {movie.spoken_languages[0].english_name}{" "}
-                {movie.first_air_date && (
-                  <>&#9679; {movie.number_of_episodes} Episode</>
-                )}
+              <p className="year-language">
+                {releaseDate} &#9679; {movie.spoken_languages[0].english_name}
               </p>
             )}
 
             {/* Genres */}
-            <div className="flex space-x-2 overflow-x-auto no-scrollbar">
+            <div className="genre-container">
               {movie.genres.map((genre) => (
-                <div
-                  key={genre.id}
-                  className="px-3 py-1 dark:bg-slate-700/50 bg-slate-400/50 font-medium text-xs tracking-wide rounded dark:text-slate-100 text-slate-950 whitespace-nowrap"
-                >
+                <div key={genre.id} className="genre">
                   {genre.name}
                 </div>
               ))}
             </div>
 
             {/* Description */}
-            <p className="xl:max-w-[60%] lg:max-w-[70%] font-normal text-sm text-slate-950 dark:text-slate-100 leading-loose">
-              {movie.overview}
-            </p>
+            <p className="description">{movie.overview}</p>
           </div>
         </div>
       </div>

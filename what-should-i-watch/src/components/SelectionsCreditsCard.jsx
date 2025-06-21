@@ -1,6 +1,5 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import DummyUser from "../assets/images/logo.png";
-import "react-lazy-load-image-component/src/effects/black-and-white.css";
 import "../styles/Selection.css";
 
 const DetailCredits = ({ credits }) => {

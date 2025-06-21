@@ -15,9 +15,9 @@
   background: linear-gradient(
     0deg,
     rgba(36, 36, 36, 1) 1%,
-    rgba(36, 36, 36, 0.9) 20%,
-    rgba(124, 125, 124, 0.2) 50%,
-    rgba(255, 255, 255, 0.05) 70%
+    rgba(36, 36, 36, 0.9) 30%,
+    rgba(36, 36, 36, 0.2) 50%,
+    rgba(36, 36, 36, 0.05) 70%
   );
 }
 
@@ -27,11 +27,8 @@
   flex-direction: column;
 }
 
-.poster-container {
-  margin-left: 0.5rem;
-}
-
 img.poster {
+  margin-left: 0.5rem;
   border-radius: 0.75rem;
   width: 190px;
   height: 290px;
@@ -112,11 +109,42 @@ img.poster-blur {
 
 .credits-card {
   display: flex;
-  margin-bottom: 0.75rem;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 700;
-  letter-spacing: 0.025em;
+  margin: 0.25rem;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  max-width: 120px;
+}
+
+.credits-placeholder {
+  border-radius: 9999px;
+  width: 5rem;
+  height: 5rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.credits-image {
+  object-fit: cover;
+  border-radius: 9999px;
+  width: 5rem;
+  height: 5rem;
+  background-position: center;
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.credits-name {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+.credits-character {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgb(165, 162, 162);
 }
 
 @media (min-width: 768px) {

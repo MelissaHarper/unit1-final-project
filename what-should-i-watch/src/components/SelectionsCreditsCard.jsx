@@ -13,22 +13,16 @@ const DetailCredits = ({ credits }) => {
             alt={credit.name}
             useIntersectionObserver={true}
             threshold={100}
-            placeholderSrc={
-              <div className="bg-slate-300 dark:bg-slate-800 animate-pulse w-20 min-w-[80px] max-w-[80px] h-20 min-h-[80px] max-h-[80px] rounded-full" />
-            }
+            placeholderSrc={<div className="credits-placeholder" />}
             effect="black-and-white"
             onError={(event) => {
               event.currentTarget.onerror = null;
               event.currentTarget.src = DummyUser;
             }}
-            className="w-20 min-w-[80px] max-w-[80px] h-20 min-h-[80px] max-h-[80px] rounded-full object-cover bg-center shadow"
+            className="credits-image"
           />
-          <p className="font-medium text-sm text-slate-950 dark:text-slate-100 text-center">
-            {credit.name}
-          </p>
-          <p className="text-sm text-slate-600 dark:text-zinc-400 text-center">
-            {credit.character}
-          </p>
+          <p className="credits-name">{credit.name}</p>
+          <p className="credits-character">{credit.character}</p>
         </div>
       ))}
     </div>

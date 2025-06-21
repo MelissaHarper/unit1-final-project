@@ -147,6 +147,23 @@ img.poster-blur {
   color: rgb(165, 162, 162);
 }
 
+.trailer-container {
+  display: flex;
+  overflow-x: auto;
+  margin-left: 1.5rem;
+}
+
+.trailer-window {
+  width: 500px;
+  height: 300px;
+}
+
+.trailer {
+  border-radius: 0.5rem;
+  width: 360px;
+  height: 200px;
+}
+
 @media (min-width: 768px) {
   .selection-wrapper {
     margin-top: -13rem;
@@ -171,6 +188,10 @@ img.poster-blur {
   .title {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+  .trailer {
+    width: 450px;
+    height: 250px;
   }
 }
 
@@ -201,5 +222,9 @@ img.poster-blur {
   .title {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+  .trailer {
+    width: 500px;
+    height: 300px;
   }
 }

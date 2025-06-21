@@ -87,7 +87,7 @@ const Selection = () => {
       {/* Banner, poster & description */}
       {!isLoading && <SelectionDescription movie={detail} />}
 
-      <div className="credits-container">
+      <div className="credits-video-container">
         {/* Credits */}
         <div>
           <p className="title">Cast</p>

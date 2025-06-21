@@ -90,7 +90,7 @@ const Selection = () => {
       <div className="credits-container">
         {/* Credits */}
         <div>
-          <p className="credits"></p>
+          <p className="title">Cast</p>
           {<SelectionCredits credits={displayedCredits} />}
           <button className="reusable-button" onClick={handleLoadMore}>
             Load More Credits
@@ -104,9 +104,7 @@ const Selection = () => {
         >
           {/* Trailers */}
           <div>
-            <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
-              Trailers
-            </p>
+            <p className="title">Trailers</p>
             {<SelectionTrailers trailers={trailers} />}
           </div>
         </Suspense>

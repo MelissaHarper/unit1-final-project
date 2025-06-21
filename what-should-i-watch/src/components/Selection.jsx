@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { getDetail, getCredits, getTrailers } from "../shared/call-functions";
 import { options } from "../shared/call-structure";
 import SelectionDescription from "./SelectionDescriptionCard";
 import SelectionCredits from "./SelectionsCreditsCard";
 import SelectionTrailers from "./SelectionTrailersCard";
+import jtLoading from "../assets/images/jt-loading.gif";
 import "../styles/Selection.css";
 
 const Selection = () => {
@@ -28,12 +29,12 @@ const Selection = () => {
       );
     setVisibleCreditsCount((prevCount) => prevCount + 5);
   };
-  // Loading Image
-  useEffect(() => {
-    setTimeout(function () {
-      setIsLoading(false);
-    }, 5000);
-  }, []);
+  // // Loading Image
+  // useEffect(() => {
+  //   setTimeout(function () {
+  //     setIsLoading(false);
+  //   }, 5000);
+  // }, []);
 
   // Get Movie Details
   const getDetailMovie = async () => {
@@ -96,18 +97,23 @@ const Selection = () => {
         {/* Credits */}
         <div>
           <p className="credits"></p>
-          {!isLoading && <SelectionCredits credits={displayedCredits} />}
+          {<SelectionCredits credits={displayedCredits} />}
           <button onClick={handleLoadMore}>Load More</button>
         </div>
-
-        {/* Trailers */}
-        <div>
-          <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
-            Trailers
-          </p>
-
-          {!isLoading && <SelectionTrailers trailers={trailers} />}
-        </div>
+        <Suspense
+          fallback=<img
+            src={jtLoading}
+            alt="John Travolta looking around confused"
+          />
+        >
+          {/* Trailers */}
+          <div>
+            <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
+              Trailers
+            </p>
+            {<SelectionTrailers trailers={trailers} />}
+          </div>
+        </Suspense>
       </div>
     </>
   );

@@ -7,10 +7,7 @@ const DetailCredits = ({ credits }) => {
   return (
     <div className="credits-container">
       {credits.map((credit, index) => (
-        <div
-          key={`credit-${index}`}
-          className="w-[120px] min-w-[120px] max-w-[120px] flex flex-col items-center space-y-1"
-        >
+        <div key={`credit-${index}`} className="credits-card">
           <LazyLoadImage
             src={`https://www.themoviedb.org/t/p/w138_and_h175_face/${credit.profile_path}`}
             alt={credit.name}

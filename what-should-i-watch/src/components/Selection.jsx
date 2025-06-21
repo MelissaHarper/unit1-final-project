@@ -29,12 +29,6 @@ const Selection = () => {
       );
     setVisibleCreditsCount((prevCount) => prevCount + 5);
   };
-  // // Loading Image
-  // useEffect(() => {
-  //   setTimeout(function () {
-  //     setIsLoading(false);
-  //   }, 5000);
-  // }, []);
 
   // Get Movie Details
   const getDetailMovie = async () => {

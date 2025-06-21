@@ -92,7 +92,9 @@ const Selection = () => {
         <div>
           <p className="credits"></p>
           {<SelectionCredits credits={displayedCredits} />}
-          <button onClick={handleLoadMore}>Load More</button>
+          <button className="reusable-button" onClick={handleLoadMore}>
+            Load More Credits
+          </button>
         </div>
         <Suspense
           fallback=<img

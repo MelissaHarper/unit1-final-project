@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
@@ -11,26 +10,10 @@ import Selection from "./components/Selection";
 import Recommendations from "./components/Recommendations";
 import Feedback from "./components/Feedback";
 import "./App.css";
-import jtLoading from "./assets/images/jt-loading.gif";
 import DateRangeFilter from "./components/DateRangeFilter";
 import MovieCard from "./components/MovieCard";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(function () {
-      setLoading(false);
-    }, 3000);
-  }, []);
-
-  if (loading) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <img src={jtLoading} alt="John Travolta looking around confused" />
-      </Box>
-    );
-  }
   return (
     <main>
       <div className="App">

@@ -9,7 +9,7 @@ const Footer = () => {
   };
   return (
     <footer>
-      <button className="random-all" onClick={handleRedirect}>
+      <button className="reusable-button" onClick={handleRedirect}>
         Surprise Me!
       </button>
     </footer>

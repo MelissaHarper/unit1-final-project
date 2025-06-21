@@ -13,11 +13,11 @@
 }
 
 .poster-container {
+  width: 40%;
   align-content: center;
 }
 
 img.poster {
-  filter: drop-shadow;
   justify-self: center;
   margin-bottom: 1rem;
   height: 225px;
@@ -29,22 +29,30 @@ img.poster {
 .info {
   display: flex;
   flex-direction: column;
+  width: 60%;
   align-content: flex-start;
   margin: 10px 15px;
 }
 
 .title {
-  overflow: hidden;
-  display: flex;
+  text-align: left;
   cursor: pointer;
   text-overflow: ellipsis;
-  font-size: 3rem;
+  overflow: hidden;
+  font-size: 2rem;
   color: white;
 }
 
 .description {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5em;
   text-align: left;
   font-size: 1rem;
+  color: white;
 }
 
 .extra-info {
@@ -58,17 +66,35 @@ img.poster {
   padding: 0;
 }
 
+a {
+  color: #fff;
+}
+a:hover {
+  color: rgb(220, 220, 233);
+}
+
 @media screen and (max-width: 630px) {
   .poster {
     height: 50%;
   }
   .title {
-    font-size: 50;
+    font-size: 2rem;
   }
 }
 
 @media screen and (max-width: 850px) {
   .poster {
     height: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .poster {
+    height: 250px;
+  }
+}
+@media (min-width: 1024px) {
+  .poster {
+    height: 300px;
   }
 }

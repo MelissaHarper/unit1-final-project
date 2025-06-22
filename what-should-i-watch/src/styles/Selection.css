@@ -15,7 +15,7 @@
   background: linear-gradient(
     0deg,
     rgba(36, 36, 36, 1) 1%,
-    rgba(36, 36, 36, 0.9) 30%,
+    rgba(36, 36, 36, 0.9) 20%,
     rgba(36, 36, 36, 0.2) 50%,
     rgba(36, 36, 36, 0.05) 70%
   );
@@ -24,6 +24,11 @@
 .detail-container {
   display: flex;
   margin: -208px, 98px;
+  flex-direction: column;
+}
+
+.poster-container {
+  display: flex;
   flex-direction: column;
 }
 
@@ -177,10 +182,10 @@ img.poster-blur {
     margin-top: -13;
     flex-direction: row;
   }
-  /* .poster {
+  .poster {
     width: 170px;
     height: 270px;
-  } */
+  }
   .poster-blur {
     width: 170px;
     height: 270px;
@@ -196,10 +201,10 @@ img.poster-blur {
 }
 
 @media (min-width: 1024px) {
-  /* .poster {
+  .poster {
     width: 190px;
     height: 290px;
-  } */
+  }
   .poster-blur {
     width: 190px;
     height: 290px;
@@ -211,10 +216,10 @@ img.poster-blur {
     font-size: 1.5rem;
     line-height: 2rem;
   }
-  /* .poster {
+  .poster {
     width: 170px;
     height: 270px;
-  } */
+  }
   .poster-blur {
     width: 220px;
     height: 330px;

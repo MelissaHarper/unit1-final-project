@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";*/
 
 .movie-card {
   display: flex;
@@ -34,15 +34,6 @@ img.poster {
   margin: 10px 15px;
 }
 
-.title {
-  text-align: left;
-  cursor: pointer;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  font-size: 2rem;
-  color: white;
-}
-
 .description {
   display: -webkit-box;
   line-clamp: 3;
@@ -76,9 +67,6 @@ a:hover {
 @media screen and (max-width: 630px) {
   .poster {
     height: 50%;
-  }
-  .title {
-    font-size: 2rem;
   }
 }
 

@@ -1,8 +1,13 @@
-// Images
+import { useEffect, useRef } from "react";
 import Dummy from "../assets/images/logo.png";
 import "../styles/Selection.css";
 
 const DetailDescription = ({ movie }) => {
+  const refContainer = useRef(null);
+  useEffect(() => {
+    refContainer.current.scrollIntoView({ behavior: "smooth" });
+  });
+
   // Variables
   const releaseDate = movie
     ? movie.release_date
@@ -25,22 +30,18 @@ const DetailDescription = ({ movie }) => {
             alt={movie.name}
             className="backdrop"
           />
-          <div className="backdrop-gradient" />
+          <div className="backdrop-gradient" ref={refContainer} />
         </div>
       )}
 
-      <div
-        className={`relative container ${
-          movie.backdrop_path ? "md:-mt-52 -mt-28" : "mt-32"
-        } z-10`}
-      >
-        <div className="detail-container">
+      <div className={"relative"} ref={refContainer}>
+        <div className="selection-detail-container">
           {/* Poster */}
-          <div className="poster-container">
+          <div className="selection-poster-container">
             <img
               src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
               alt={movie.title || movie.name}
-              className="poster"
+              className="selection-poster"
               onError={onErrorImage}
             />
             <img
@@ -75,7 +76,7 @@ const DetailDescription = ({ movie }) => {
             </div>
 
             {/* Description */}
-            <p className="description">{movie.overview}</p>
+            <p className="selection-description">{movie.overview}</p>
           </div>
         </div>
       </div>

@@ -4,6 +4,15 @@
   text-align: center;
 }
 
+.title {
+  text-align: left;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 2rem;
+  color: white;
+}
+
 .error {
   background-image: url("https://cdn12.picryl.com/photo/2016/12/31/not-found-website-error-3e54fc-1024.jpg");
 }

@@ -1,6 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
 import NavBar from "./components/NavBar";
 import FilterContainer from "./components/FilterContainer";
 import Home from "./components/Home";

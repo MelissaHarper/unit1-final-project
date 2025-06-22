@@ -21,18 +21,20 @@ const MovieCard = () => {
             event.currentTarget.onerror = null;
             event.currentTarget.src = Dummy;
           }}
-          width="100%"
         />
       </Link>
-      <div className="info">
-        <Link to={`/selection/movie/detail/${movie.id}`} className="title">
+      <div className="info-container">
+        <Link
+          to={`/selection/movie/detail/${movie.id}`}
+          className="movie-title"
+        >
           {movie.title || movie.name}
         </Link>
         <Link
           to={`/selection/movie/detail/${movie.id}`}
           className="description"
         >
-          {movie.overview}
+          {movie.tagline}
         </Link>
         <ul className="extra-info">
           <li>
@@ -41,10 +43,10 @@ const MovieCard = () => {
           </li>
 
           <li>
-            {" "}
-            {Number(movie.imdb_rating) > 0 && (
+            {movie.imdb_rating > 0 && (
               <>
-                <>{String(movie.imdb_rating).substring(0, 3)}</>
+                <>{`
+            IMDB Rating: ${String(movie.imdb_rating).substring(0, 3)}`}</>
               </>
             )}
           </li>

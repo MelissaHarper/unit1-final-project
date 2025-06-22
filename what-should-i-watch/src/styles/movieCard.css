@@ -2,36 +2,42 @@
 
 .movie-card {
   display: flex;
-  flex-direction: row;
-  border-radius: 0.5rem;
+  flex-direction: column;
+  justify-content: start;
+  width: 90%;
+  height: auto;
+  margin: 1rem;
+  border-radius: 1rem;
   border-width: 1px;
   border-color: rgb(229, 231, 235);
-  font-size: 100%;
-  padding: 1.5rem;
+  padding: 1rem;
   box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgb(0, 0, 0, 0.1),
     0 4px 6px -4px rgb(0, 0, 0, 0.1);
 }
 
 .poster-container {
-  width: 40%;
   align-content: center;
+  height: auto;
+  width: 150px;
 }
 
 img.poster {
   justify-self: center;
-  margin-bottom: 1rem;
-  height: 225px;
-  width: 150px;
+  height: 180px;
+  width: 100px;
   border-radius: 0.5rem;
   object-fit: cover;
 }
 
-.info {
+.info-container {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  align-content: flex-start;
+  justify-content: flex-end;
   margin: 10px 15px;
+}
+.movie-title {
+  font-size: 1.75rem;
+  text-align: left;
 }
 
 .description {
@@ -42,7 +48,8 @@ img.poster {
   overflow: hidden;
   line-height: 1.5em;
   text-align: left;
-  font-size: 1rem;
+  font-size: 0.75rem;
+  font-weight: 400;
   color: white;
 }
 
@@ -52,7 +59,7 @@ img.poster {
   justify-items: flex-start;
   align-items: flex-end;
   list-style-type: none;
-  font-size: 1.3rem;
+  font-size: 0.75rem;
   gap: 15px;
   padding: 0;
 }
@@ -64,25 +71,50 @@ a:hover {
   color: rgb(220, 220, 233);
 }
 
-@media screen and (max-width: 630px) {
-  .poster {
-    height: 50%;
-  }
-}
-
-@media screen and (max-width: 850px) {
-  .poster {
-    height: 50%;
-  }
-}
-
 @media (min-width: 768px) {
-  .poster {
-    height: 250px;
+  .movie-card {
+    height: 300px;
+    flex-direction: row;
+  }
+  img.poster {
+    width: 180px;
+    height: 270px;
+  }
+  .info-container {
+    width: 450px;
+  }
+  .movie-title {
+    font-size: 2;
+    text-align: left;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .extra-info {
+    font-size: 0.75rem;
   }
 }
 @media (min-width: 1024px) {
-  .poster {
+  .movie-card {
+    height: 320px;
+    flex-direction: row;
+  }
+  img.poster {
+    margin-right: 8px;
+    margin-left: 8px;
+    width: 193px;
+    height: 290px;
+  }
+}
+@media (min-width: 1280px) {
+  .movie-card {
+    height: 330px;
+    flex-direction: row;
+  }
+  img.poster {
+    width: 200px;
     height: 300px;
   }
 }

@@ -52,6 +52,27 @@ footer {
   background-color: #121619;
 }
 
+.box-travel {
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  height: 5px;
+  width: 10px;
+  animation: travel 2s infinite;
+}
+
+@keyframes travel {
+  0% {
+    left: 40%;
+  }
+  50% {
+    left: 60%;
+  }
+  100% {
+    left: 40%;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .navbar .rightSide a {
     width: 70px;

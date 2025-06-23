@@ -12,6 +12,7 @@ const Footer = () => {
       <button className="reusable-button" onClick={handleRedirect}>
         Surprise Me!
       </button>
+      <div className="box-travel"></div>
     </footer>
   );
 };

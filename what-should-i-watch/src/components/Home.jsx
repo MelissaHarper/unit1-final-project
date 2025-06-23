@@ -6,7 +6,8 @@ function Home() {
       </div>
       <div className="howTo">
         <p>
-          Click the "Surprise Me!" below and get random movie recommendations.
+          Click the "Surprise Me!" button below and get random movie
+          recommendations.
         </p>
       </div>
     </div>

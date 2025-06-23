@@ -81,7 +81,7 @@ const Selection = () => {
           <p className="title">Cast</p>
           {<SelectionCredits credits={displayedCredits} />}
           <button className="reusable-button" onClick={handleLoadMore}>
-            Load More Credits
+            Load More Cast
           </button>
         </div>
         <Suspense

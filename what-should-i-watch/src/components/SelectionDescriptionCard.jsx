@@ -1,14 +1,7 @@
-import { useEffect, useRef } from "react";
 import Dummy from "../assets/images/logo.png";
 import "../styles/Selection.css";
 
 const DetailDescription = ({ movie }) => {
-  const refContainer = useRef(null);
-  useEffect(() => {
-    refContainer.current.scrollIntoView({ behavior: "smooth" });
-  });
-
-  // Variables
   const releaseDate = movie
     ? movie.release_date
       ? movie.release_date.split("-")[0]
@@ -17,7 +10,6 @@ const DetailDescription = ({ movie }) => {
       : ""
     : "";
 
-  // Error image
   const onErrorImage = (e) => (e.target.src = Dummy);
 
   return (
@@ -30,11 +22,11 @@ const DetailDescription = ({ movie }) => {
             alt={movie.name}
             className="backdrop"
           />
-          <div className="backdrop-gradient" ref={refContainer} />
+          <div className="backdrop-gradient" />
         </div>
       )}
 
-      <div className={"relative"} ref={refContainer}>
+      <div className={"relative"}>
         <div className="selection-detail-container">
           {/* Poster */}
           <div className="selection-poster-container">
@@ -52,7 +44,6 @@ const DetailDescription = ({ movie }) => {
             />
           </div>
 
-          {/* Title, release year, language, genres, description */}
           <div className="selection-info">
             {/* Title */}
             <h1 className="title">

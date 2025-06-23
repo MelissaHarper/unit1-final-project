@@ -1,4 +1,3 @@
-// Local interface
 const DetailTrailers = ({ trailers }) => {
   return (
     <div className="trailer-container">

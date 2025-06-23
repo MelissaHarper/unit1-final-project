@@ -1,18 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Filter from "./Filter.jsx";
-import MovieCard from "./MovieCard.jsx";
-import Recommendations from "./Recommendations.jsx";
-import { genreOptions } from "../shared/utils";
+import Filter from "./FilterByGenre.jsx";
+import Modal from "@mui/material/Modal";
+import { filterByGenre } from "../shared/utils";
 import "../styles/filterContainer.css";
 
-function FilterContainer() {
-  const [selectedGenre, setSelectedGenre] = useState(genreOptions);
+function FilterContainer({ movieList, setMovieList }) {
+  const [selectedGenre, setSelectedGenre] = useState(null);
   const [open, setOpen] = useState(false);
-
-  const allGenres = genreOptions.map((obj) => {
-    return obj;
-  });
+  const navigate = useNavigate();
 
   const handleClose = () => {
     setOpen(false);
@@ -21,49 +17,47 @@ function FilterContainer() {
   const handleOpen = () => {
     setOpen(true);
   };
-  // const navigate = useNavigate();
-  // let genres = [];
 
-  // const handleButtonClick = () => {
-  //   selectedGenre !== null
-  //     ? ((genres = selectedGenre.map((obj) => {
-  //         return obj.value;
-  //       })),
-  //       (<MovieCard selectedGenre={genres} />),
-  //       navigate(`/recommendations`))
-  //     : navigate(`/recommendations`);
-  // };
+  const handleFilters = () => {
+    setMovieList(filterByGenre(selectedGenre.label, movieList));
+    navigate(`/recommendations`);
+  };
 
   return (
     <div className="filter-container">
-      <p> Click the dropdown menu to select genres, or don't.</p>
-      <p>
+      <p className="filter-directions">
         {" "}
-        When you're ready, click the button to get 5 random recommendations.
+        Click the button for the type of filter you would like to apply
       </p>
-      <Filter
-        selectedGenre={selectedGenre}
-        setSelectedGenre={setSelectedGenre}
-      />
+
+      <div>
+        <button className="reusable-button" onClick={handleOpen}>
+          Genre
+        </button>
+        <Modal open={open} onClose={handleClose}>
+          <div className="filter-popup">
+            <Filter
+              selectedGenre={selectedGenre}
+              setSelectedGenre={setSelectedGenre}
+            />
+          </div>
+        </Modal>
+      </div>
 
       {selectedGenre && (
-        <div className="confirmInput">
+        <div className="confirm-input">
           <h2>Search Parameters:</h2>
           <p>
-            {selectedGenre.map((obj) => {
+            {`Genres:
+            ${selectedGenre.map((obj) => {
               return `${obj.label} `;
-            })}
+            })}`}
           </p>
         </div>
       )}
-      <button className="filter-button" onClick={handleOpen}>
+      <button className="reusable-button" onClick={handleFilters}>
         Get me my movies!
       </button>
-      {/* <Recommendations
-        isOpen={open}
-        onclose={handleClose}
-        selectedGenre={selectedGenre !== null ? selectedGenre : allGenres}
-      ></Recommendations> */}
     </div>
   );
 }

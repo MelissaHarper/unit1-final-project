@@ -16,10 +16,6 @@ function UserForm() {
     }));
   };
 
-  // const submitAlert = () => {
-  //   alert("Your form has been submitted");
-  // };
-
   return (
     <div className="feedback-form">
       <h1>Let us know what you'd like to see from this site in the future</h1>

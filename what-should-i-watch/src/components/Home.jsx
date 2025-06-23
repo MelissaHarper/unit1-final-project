@@ -5,7 +5,9 @@ function Home() {
         <h1> What Should I Watch? </h1>
       </div>
       <div className="howTo">
-        <p>Click the button below to get random movie recommendations.</p>
+        <p>
+          Click the "Surprise Me!" below and get random movie recommendations.
+        </p>
       </div>
     </div>
   );

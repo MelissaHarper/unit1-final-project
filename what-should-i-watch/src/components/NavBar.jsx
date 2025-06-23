@@ -24,8 +24,6 @@ function NavBar() {
       <Link to="/">Home</Link>
       <Link to="/feedback">Feedback</Link>
       <Link to="/about">About</Link>
-      {/* Below link is a placeholder for a future update */}
-      {/* <Link to="/selection">Random</Link> */}
     </div>
   );
 }

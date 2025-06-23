@@ -34,7 +34,7 @@ const MovieCard = () => {
           to={`/selection/movie/detail/${movie.id}`}
           className="description"
         >
-          {movie.tagline}
+          {movie.overview}
         </Link>
         <ul className="extra-info">
           <li>

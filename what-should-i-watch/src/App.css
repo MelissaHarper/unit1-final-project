@@ -4,6 +4,13 @@
   text-align: center;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
 .title {
   text-align: left;
   cursor: pointer;
@@ -25,9 +32,6 @@
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 .feedback {

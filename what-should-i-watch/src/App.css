@@ -11,6 +11,16 @@ body {
   align-content: center;
 }
 
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 3rem;
+}
+
 .title {
   text-align: left;
   text-overflow: ellipsis;

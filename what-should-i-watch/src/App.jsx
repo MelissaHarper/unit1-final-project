@@ -1,3 +1,4 @@
+import { useState, UseState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import FilterContainer from "./components/FilterContainer";
@@ -10,8 +11,10 @@ import Feedback from "./components/Feedback";
 import "./App.css";
 import DateRangeFilter from "./components/DateRangeFilter";
 import MovieCard from "./components/MovieCard";
+import movies from "./assets/data/movies.json";
 
 function App() {
+  const [movieList, setMovieList] = useState(movies);
   return (
     <main>
       <div className="App">
@@ -20,10 +23,31 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/recommendations" element={<Recommendations />} />
-            <Route path="/filterContainer" element={<FilterContainer />} />
+            <Route
+              path="/recommendations"
+              element={
+                <Recommendations
+                  movieList={movieList}
+                  setMovieList={setMovieList}
+                />
+              }
+            />
+            <Route
+              path="/filterContainer"
+              element={
+                <FilterContainer
+                  movieList={movieList}
+                  setMovieList={setMovieList}
+                />
+              }
+            />
             <Route path="/dateFilter" element={<DateRangeFilter />} />
-            <Route path="/movieCard" element={<MovieCard />} />
+            <Route
+              path="/movieCard"
+              element={
+                <MovieCard movieList={movieList} setMovieList={setMovieList} />
+              }
+            />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/selection/:type/detail/:id" element={<Selection />} />
             <Route path="/footer" element={<Footer />} />

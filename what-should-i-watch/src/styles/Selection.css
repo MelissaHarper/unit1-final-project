@@ -113,7 +113,7 @@ img.poster-blur {
 .credits-container {
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: center;
   margin-left: 2rem;
   gap: 1rem;
 }

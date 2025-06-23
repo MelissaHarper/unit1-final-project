@@ -11,7 +11,6 @@ import "../styles/Selection.css";
 const Selection = () => {
   const { type, id } = useParams();
   // Use States
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [detail, setDetail] = useState(null);
   const [displayedCredits, setDisplayedCredits] = useState([]);
@@ -54,15 +53,6 @@ const Selection = () => {
     Promise.all([resData, resCredits, resTrailers]).then(() => {
       setIsLoading(false);
     });
-    setIsFirstLoad(false);
-  };
-
-  // Reset data
-  const resetData = () => {
-    setDetail(null);
-    setDisplayedCredits([]);
-    setTrailers([]);
-    setVisibleCreditsCount(1);
   };
 
   // When page mounts

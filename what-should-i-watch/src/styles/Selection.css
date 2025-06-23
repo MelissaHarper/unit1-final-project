@@ -116,7 +116,7 @@ img.poster-blur {
   display: flex;
   flex-direction: row;
   justify-content: left;
-  margin-left: 5rem;
+  margin-left: 2rem;
   gap: 1rem;
 }
 

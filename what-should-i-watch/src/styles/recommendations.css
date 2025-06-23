@@ -6,24 +6,6 @@ div .recommend-grid {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
+  margin-top: 75px;
   gap: 1rem;
-}
-
-.modal {
-  position: "relative";
-  top: 0;
-  left: 0;
-  width: "100%";
-  height: "100%";
-  background: "rgba(0 0, 0, 0.5)";
-  display: "flex";
-}
-
-.modal-background {
-  background: "white";
-  margin: "auto";
-  padding: "2%";
-  border: "2px solid #000";
-  border-radius: "10px";
-  box-shadow: "2px solid black";
 }

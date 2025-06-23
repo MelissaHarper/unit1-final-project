@@ -10,7 +10,6 @@ import "../styles/Selection.css";
 
 const Selection = () => {
   const { type, id } = useParams();
-  // Use States
   const [isLoading, setIsLoading] = useState(true);
   const [detail, setDetail] = useState(null);
   const [displayedCredits, setDisplayedCredits] = useState([]);
@@ -55,7 +54,6 @@ const Selection = () => {
     });
   };
 
-  // Mounted
   useEffect(() => {
     getDetailMovie();
   });

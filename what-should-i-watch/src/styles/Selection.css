@@ -30,8 +30,6 @@
   position: relative;
   width: 100%;
   margin-top: -7rem;
-  margin-right: auto;
-  margin-left: auto;
   flex-direction: column;
   row-gap: 2rem;
   z-index: 10;
@@ -39,7 +37,6 @@
 
 .selection-poster-container {
   position: relative;
-  width: 100%;
 }
 
 img.selection-poster {
@@ -113,6 +110,7 @@ img.poster-blur {
 .credits-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   margin-left: 2rem;
   gap: 1rem;
@@ -160,7 +158,9 @@ img.poster-blur {
 
 .trailer-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 0.5rem;
   margin-left: 1.5rem;
 }
 

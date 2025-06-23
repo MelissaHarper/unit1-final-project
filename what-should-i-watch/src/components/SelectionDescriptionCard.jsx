@@ -50,11 +50,9 @@ const DetailDescription = ({ movie }) => {
               {movie.original_name || movie.original_title}
             </h1>
 
-            {/* Release year & language */}
+            {/* Release year */}
             {movie.spoken_languages.length > 0 && (
-              <p className="year-language">
-                {releaseDate} &#9679; {movie.spoken_languages[0].english_name}
-              </p>
+              <p className="year-language">{releaseDate}</p>
             )}
 
             {/* Genres */}

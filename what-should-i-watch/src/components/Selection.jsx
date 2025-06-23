@@ -55,7 +55,7 @@ const Selection = () => {
     });
   };
 
-  // When page mounts
+  // Mounted
   useEffect(() => {
     getDetailMovie();
   });
@@ -87,6 +87,8 @@ const Selection = () => {
           </div>
         </Suspense>
       </div>
+
+      <p> {!detail && "We messed up, click that button again."}</p>
     </>
   );
 };

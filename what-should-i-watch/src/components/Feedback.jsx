@@ -16,14 +16,14 @@ function UserForm() {
     }));
   };
 
-  const submitAlert = () => {
-    alert("Your form has been submitted");
-  };
+  // const submitAlert = () => {
+  //   alert("Your form has been submitted");
+  // };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <div className="feedback-form">
       <h1>Let us know what you'd like to see from this site in the future</h1>
-      <form classname="Feedback">
+      <form className="feedback" id="feedback">
         <label>
           Name:
           <input
@@ -31,6 +31,7 @@ function UserForm() {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            required
           />
         </label>
 
@@ -43,6 +44,7 @@ function UserForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            required
           />
         </label>
 
@@ -59,20 +61,16 @@ function UserForm() {
             value={formData.feedback}
             onChange={handleChange}
             className="input"
+            required
           />
         </label>
         <br />
-        <button
-          onClick={submitAlert}
-          className={
-            formData.feedback.length === 0
-              ? "disabled-button"
-              : "enabled-button"
-          }
-          disabled={formData.feedback.length === 0}
-        >
-          Submit
-        </button>
+
+        <input
+          style={{ borderColor: "black" }}
+          type="submit"
+          value="Submit Feedback"
+        />
       </form>
 
       <section>

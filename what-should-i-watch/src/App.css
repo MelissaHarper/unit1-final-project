@@ -34,13 +34,21 @@ body {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 input {
   border: 1px, solid, white;
   border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 textarea.input {
   border: 1px, solid, white;
   border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 @media (min-width: 768px) {
   .title {

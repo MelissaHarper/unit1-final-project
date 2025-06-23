@@ -1,27 +1,25 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useParams } from "react-router-dom";
-import Stack from "@mui/material/Stack";
-import LinearProgress from "@mui/material/LinearProgress";
 import { getDetail, getCredits, getTrailers } from "../shared/call-functions";
 import { options } from "../shared/call-structure";
+import SelectionDescription from "./SelectionDescriptionCard";
+import SelectionCredits from "./SelectionsCreditsCard";
+import SelectionTrailers from "./SelectionTrailersCard";
+import jtLoading from "../assets/images/jt-loading.gif";
 import "../styles/Selection.css";
-import DetailDescription from "./DetailDescription";
-import DetailCredits from "./DetailCredits";
-import DetailTrailers from "./DetailTrailers";
 
 const Selection = () => {
-  // const apiKey = import.meta.env.VITE_API_KEY;
   const { type, id } = useParams();
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
+  // Use States
   const [isLoading, setIsLoading] = useState(true);
   const [detail, setDetail] = useState(null);
   const [displayedCredits, setDisplayedCredits] = useState([]);
   const [trailers, setTrailers] = useState([]);
-  const [visibleCreditsCount, setVisibleCreditsCount] = useState(1);
+  const [visibleCreditsCount, setVisibleCreditsCount] = useState(0);
 
   const payload = options;
 
+  // Load more cast credits
   const handleLoadMore = async () => {
     const resCredits = await getCredits(type || "", id || "", payload);
     if (resCredits.data)
@@ -31,13 +29,7 @@ const Selection = () => {
     setVisibleCreditsCount((prevCount) => prevCount + 5);
   };
 
-  useEffect(() => {
-    setTimeout(function () {
-      setIsLoading(false);
-    }, 5000);
-  }, []);
-
-  // Get Detail Movie
+  // Get Movie Details
   const getDetailMovie = async () => {
     const resData = await getDetail(type || "", id || "", payload);
     if (resData.data) setDetail(resData.data);
@@ -61,56 +53,39 @@ const Selection = () => {
     Promise.all([resData, resCredits, resTrailers]).then(() => {
       setIsLoading(false);
     });
-    setIsFirstLoad(false);
-  };
-
-  // Reset data
-  const resetData = () => {
-    setDetail(null);
-    setDisplayedCredits([]);
-    setTrailers([]);
-    setVisibleCreditsCount(1);
   };
 
   // Mounted
   useEffect(() => {
     getDetailMovie();
-  }, []);
-
-  // Refetch if params id is change
-  useEffect(() => {
-    if (!isFirstLoad) {
-      window.scrollTo(0, 0);
-      resetData();
-      setIsLoading(true);
-      getDetailMovie();
-      setVisibleCreditsCount(1);
-      setDisplayedCredits([]);
-    }
-  }, [id]);
+  });
 
   return (
     <>
       {/* Banner, poster & description */}
-      {!isLoading && detail && <DetailDescription movie={detail} />}
+      {!isLoading && <SelectionDescription movie={detail} />}
 
-      <div className="container md:mt-16 mt-10 md:space-y-12 space-y-8">
+      <div className="credits-video-container">
         {/* Credits */}
         <div>
-          <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3"></p>
-          {!isLoading && <DetailCredits credits={displayedCredits} />}
-          {detail && <button onClick={handleLoadMore}>Load More</button>}
+          <p className="title">Cast</p>
+          {<SelectionCredits credits={displayedCredits} />}
+          <button className="reusable-button" onClick={handleLoadMore}>
+            Load More Cast
+          </button>
         </div>
-
-        {/* Videos */}
-        <div>
-          {detail && (
-            <p className="font-bold tracking-wide xl:text-2xl md:text-xl text-lg text-slate-950 dark:text-slate-100 mb-3">
-              Videos
-            </p>
-          )}
-          {!isLoading && <DetailTrailers trailers={trailers} />}
-        </div>
+        <Suspense
+          fallback=<img
+            src={jtLoading}
+            alt="John Travolta looking around confused"
+          />
+        >
+          {/* Trailers */}
+          <div>
+            <p className="title">Trailers</p>
+            {<SelectionTrailers trailers={trailers} />}
+          </div>
+        </Suspense>
       </div>
 
       <p> {!detail && "We messed up, click that button again."}</p>

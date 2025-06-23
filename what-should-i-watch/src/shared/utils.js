@@ -1,46 +1,5 @@
 import { options } from "./call-structure.js";
-
-// symbols in url that separate options within the same category (replaces a comma between ex: genres): %2C%20
-// but I just found something that showed you could leave the comma there, but no spaces between. , is and | is or
-// place an "&" before any filter category at the end of the URL
-
-export const apiQueryOptions = [
-  "with_watch_providers",
-  "with_original_language",
-  "with_origin_country",
-  "with_keywords",
-  "with_genres",
-  "with_cast",
-  "sort_by=popularity.desc",
-];
-// ("https://api.themoviedb.org/3/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=undefined");
-// ("/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=2");
-
-/*** Call Functions ***/
-export async function searchByGenre(arr) {
-  let movieList = [];
-  for (let i = 0; i < arr.length; i++) {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${arr[i]}`,
-      options
-    );
-    const data = await res.json();
-
-    movieList.push(Object.values(data["results"]));
-  }
-  return movieList;
-}
-
-export const formatGenreFilters = (arr) => {
-  let i = 1;
-  let genres = [];
-  while (i < arr.length - 1) {
-    i++;
-    // console.log(arr[i]);
-    return genres.push(`${arr[i]}%2C%20`);
-  }
-  return genres.push(arr[0]);
-};
+// import movies from "../assets/data/movies.json";
 
 export function getRandomNumber() {
   let randomNumber = Math.floor(Math.random() * 80000);
@@ -63,6 +22,22 @@ export const filterByDate = (arr, dateRange) => {
   );
   return moviesByDate;
 };
+
+export function filterByGenre(genreArr, list) {
+  let filteredMovieList = list;
+  if (genreArr) {
+    let genreFilter = 0;
+    while (genreFilter < genreArr.length - 1) {
+      filteredMovieList = filteredMovieList.filter((movie) => {
+        if (Object.values(movie.genres).includes()) {
+          return { ...movie };
+        }
+      });
+      genreFilter++;
+    }
+  }
+  return filteredMovieList;
+}
 
 export const genreOptions = [
   {
@@ -146,3 +121,44 @@ export const genreOptions = [
     label: "Western",
   },
 ];
+// symbols in url that separate options within the same category (replaces a comma between ex: genres): %2C%20
+// but I just found something that showed you could leave the comma there, but no spaces between. , is and | is or
+// place an "&" before any filter category at the end of the URL
+
+export const apiQueryOptions = [
+  "with_watch_providers",
+  "with_original_language",
+  "with_origin_country",
+  "with_keywords",
+  "with_genres",
+  "with_cast",
+  "sort_by=popularity.desc",
+];
+// ("https://api.themoviedb.org/3/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=undefined");
+// ("/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=2");
+
+/*** Call Functions ***/
+export async function searchByGenre(arr) {
+  let movieList = [];
+  for (let i = 0; i < arr.length; i++) {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${arr[i]}`,
+      options
+    );
+    const data = await res.json();
+
+    movieList.push(Object.values(data["results"]));
+  }
+  return movieList;
+}
+
+export const formatGenreFilters = (arr) => {
+  let i = 1;
+  let genres = [];
+  while (i < arr.length - 1) {
+    i++;
+    // console.log(arr[i]);
+    return genres.push(`${arr[i]}%2C%20`);
+  }
+  return genres.push(arr[0]);
+};

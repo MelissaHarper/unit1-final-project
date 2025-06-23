@@ -1,8 +1,33 @@
+@import "tailwindcss";
+
 #root {
-  /* max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem; */
   text-align: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  margin-top: 75px;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 3rem;
+}
+
+.title {
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 2rem;
+  color: white;
 }
 
 .error {
@@ -18,11 +43,40 @@
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
 
-.feedback {
+.feedback-form {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
+}
+
+input {
+  border: 1px, solid, white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+textarea.input {
+  border: 1px, solid, white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 1.75rem;
+    line-height: 2.1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .title {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
 }

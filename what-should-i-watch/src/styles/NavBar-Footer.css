@@ -1,17 +1,17 @@
 .navbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
   width: 100%;
   height: 70px;
   background-color: #121619;
   display: flex;
   flex-direction: row;
-  margin-bottom: 5%;
+  z-index: 50;
 }
 
 .navbar .leftSide {
-  /* flex: 50%; */
-  /* height: 100%; */
-  /* display: flex row; */
-  /* align-items: flex-start; */
   padding-left: 10px;
 }
 
@@ -36,6 +36,10 @@
 }
 
 footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  right: 0;
   margin-top: 5rem;
   display: flex;
   flex-direction: row;
@@ -45,6 +49,27 @@ footer {
   height: 70px;
   gap: 3vw;
   background-color: #121619;
+}
+
+.box-travel {
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  height: 5px;
+  width: 10px;
+  animation: travel 2s infinite;
+}
+
+@keyframes travel {
+  0% {
+    left: 40%;
+  }
+  50% {
+    left: 60%;
+  }
+  100% {
+    left: 40%;
+  }
 }
 
 @media only screen and (max-width: 900px) {

@@ -30,7 +30,6 @@ function App() {
                 />
               }
             />
-            <Route path="/dateFilter" element={<DateRangeFilter />} />
             <Route
               path="/movieCard"
               element={

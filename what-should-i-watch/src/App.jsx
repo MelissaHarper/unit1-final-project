@@ -1,7 +1,6 @@
 import { useState, UseState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import FilterContainer from "./components/FilterContainer";
 import Home from "./components/Home";
 import About from "./components/About";
 import Footer from "./components/Footer";
@@ -9,7 +8,6 @@ import Selection from "./components/Selection";
 import Recommendations from "./components/Recommendations";
 import Feedback from "./components/Feedback";
 import "./App.css";
-import DateRangeFilter from "./components/DateRangeFilter";
 import MovieCard from "./components/MovieCard";
 import movies from "./assets/data/movies.json";
 
@@ -27,15 +25,6 @@ function App() {
               path="/recommendations"
               element={
                 <Recommendations
-                  movieList={movieList}
-                  setMovieList={setMovieList}
-                />
-              }
-            />
-            <Route
-              path="/filterContainer"
-              element={
-                <FilterContainer
                   movieList={movieList}
                   setMovieList={setMovieList}
                 />

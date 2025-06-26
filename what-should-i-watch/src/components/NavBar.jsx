@@ -16,15 +16,17 @@ function NavBar() {
   }
 
   return (
-    <div className="navbar">
-      <div className="leftSide"></div>
-      <img className="nav-logo" src={image} onClick={handleClick} />
-      <p className="siteName">What Should I Watch</p>
-      <div className="rightSide"></div>
-      <Link to="/">Home</Link>
-      <Link to="/feedback">Feedback</Link>
-      <Link to="/about">About</Link>
-    </div>
+    <header>
+      <div className="navbar">
+        <div className="leftSide"></div>
+        <img className="nav-logo" src={image} onClick={handleClick} />
+        <p className="siteName">What Should I Watch</p>
+        <div className="rightSide"></div>
+        <Link to="/">Home</Link>
+        <Link to="/feedback">Feedback</Link>
+        <Link to="/about">About</Link>
+      </div>
+    </header>
   );
 }
 

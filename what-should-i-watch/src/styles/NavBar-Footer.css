@@ -1,5 +1,5 @@
 .navbar {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
@@ -12,12 +12,22 @@
 }
 
 .navbar .leftSide {
+  display: flex;
+  flex-direction: column;
   padding-left: 10px;
+  max-height: 70px;
 }
 
 .navbar .nav-logo {
   width: 70px;
   height: 70px;
+}
+
+p.siteName {
+  position: relative;
+  margin: -1rem -1rem;
+  font-size: 0.5rem;
+  z-index: 1;
 }
 
 .navbar .rightSide {
@@ -36,11 +46,12 @@
 }
 
 footer {
-  position: relative;
+  position: sticky;
   left: 0;
   bottom: 0;
-  right: 0;
-  margin-top: 5rem;
+  /* right: 0;
+  margin-top: 5rem; */
+  padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

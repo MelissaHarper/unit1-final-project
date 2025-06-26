@@ -18,9 +18,10 @@ function NavBar() {
   return (
     <header>
       <div className="navbar">
-        <div className="leftSide"></div>
-        <img className="nav-logo" src={image} onClick={handleClick} />
-        <p className="siteName">What Should I Watch</p>
+        <div className="leftSide">
+          <img className="nav-logo" src={image} onClick={handleClick} />
+          <p className="siteName">What Should I Watch</p>
+        </div>
         <div className="rightSide"></div>
         <Link to="/">Home</Link>
         <Link to="/feedback">Feedback</Link>

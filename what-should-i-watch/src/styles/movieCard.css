@@ -36,6 +36,7 @@ img.poster {
 .movie-title {
   font-size: 1.75rem;
   text-align: left;
+  text-decoration: none;
 }
 
 .description {
@@ -49,6 +50,7 @@ img.poster {
   font-size: 0.75rem;
   font-weight: 400;
   color: white;
+  text-decoration: none;
 }
 
 .extra-info {

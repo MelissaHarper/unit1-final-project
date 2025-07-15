@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import Dummy from "../assets/images/logo.png";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
-import data from "../assets/data/mergedDummyData.json";
 import { getRandomElement } from "../shared/utils";
 import "../styles/movieCard.css";
 
-const MovieCard = () => {
-  let movie = getRandomElement(data);
+const MovieCard = ({ movieList }) => {
+  let movie = getRandomElement(movieList);
   return (
     <div className="movie-card">
       <Link

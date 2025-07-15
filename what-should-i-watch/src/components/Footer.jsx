@@ -17,8 +17,8 @@ const Footer = () => {
           alt="Logo for The Movie Database"
         />
         <p className="tmdb-notice">
-          This product uses the TMDB API but is not endorsed or certified by
-          TMDB.
+          This product uses the TMDB API and data provided by JustWatch but it
+          is not endorsed or certified by TMDB.
         </p>
       </div>
 

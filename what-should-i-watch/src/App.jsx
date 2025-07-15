@@ -1,4 +1,4 @@
-import { useState, UseState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import FilterContainer from "./components/FilterContainer";
@@ -9,12 +9,24 @@ import Selection from "./components/Selection";
 import Recommendations from "./components/Recommendations";
 import Feedback from "./components/Feedback";
 import "./App.css";
-import DateRangeFilter from "./components/DateRangeFilter";
 import MovieCard from "./components/MovieCard";
-import movies from "./assets/data/movies.json";
+import movies from "./assets/data/mergedDummyData.json";
 
 function App() {
-  const [movieList, setMovieList] = useState(movies);
+  const [movieList, setMovieList] = useState();
+
+  function setMovies() {
+    let movieData = movies.map((obj) => {
+      return { ...obj };
+    });
+    setMovieList(movieData);
+  }
+
+  // populates movieList upon first load
+  useEffect(() => {
+    setMovies();
+  }, []);
+
   return (
     <main>
       <div className="App">
@@ -41,16 +53,9 @@ function App() {
                 />
               }
             />
-            <Route path="/dateFilter" element={<DateRangeFilter />} />
-            <Route
-              path="/movieCard"
-              element={
-                <MovieCard movieList={movieList} setMovieList={setMovieList} />
-              }
-            />
+            <Route path="/movieCard" element={<MovieCard />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/selection/:type/detail/:id" element={<Selection />} />
-            <Route path="/footer" element={<Footer />} />
           </Routes>
           <Footer />
         </BrowserRouter>

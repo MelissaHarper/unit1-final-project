@@ -18,4 +18,7 @@ export default defineConfig({
       views: `${path.resolve("./src/views/")}`,
     },
   },
+  server: {
+    allowedHosts: ["widely-endless-basilisk.ngrok-free.app"],
+  },
 });

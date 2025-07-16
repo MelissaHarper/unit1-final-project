@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 import Logo from "../assets/images/logo.png";
 import Logo2 from "../assets/images/logo2.png";
 import "../styles/NavBar-Footer.css";
@@ -26,6 +32,12 @@ function NavBar() {
         <Link to="/">Home</Link>
         <Link to="/feedback">Feedback</Link>
         <Link to="/about">About</Link>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
     </header>
   );

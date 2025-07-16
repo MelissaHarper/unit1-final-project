@@ -18,3 +18,4 @@
 - react-material-ui-carousel
 - @fortawesome/react-fontawesome
 - @fortawesome/free-solid-svg-icons
+- @clerk/react-router

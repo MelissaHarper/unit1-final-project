@@ -1,4 +1,4 @@
-import { options } from "./call-structure.js";
+import { options } from "./call-headers.js";
 // import movies from "../assets/data/movies.json";
 
 export function getRandomNumber() {

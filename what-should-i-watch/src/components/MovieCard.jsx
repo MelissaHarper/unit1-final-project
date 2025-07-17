@@ -4,24 +4,28 @@ import "react-lazy-load-image-component/src/effects/black-and-white.css";
 import { getRandomElement } from "../shared/utils";
 import "../styles/movieCard.css";
 
-const MovieCard = ({ movieList }) => {
-  let movie = getRandomElement(movieList);
+const MovieCard = (props) => {
+  let movie = getRandomElement(props.movieList);
+  const ToWatchList = props.toWatchList;
+
   return (
     <div className="movie-card">
-      <Link
-        to={`/selection/movie/detail/${movie.id}`}
-        className="poster-container"
-      >
-        <img
-          className="poster"
-          src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
-          alt={movie.title || movie.original_title || movie.original_name}
-          onError={(event) => {
-            event.currentTarget.onerror = null;
-            event.currentTarget.src = Dummy;
-          }}
-        />
-      </Link>
+      <div className="poster-container">
+        <Link to={`/selection/movie/detail/${movie.id}`}>
+          <img
+            className="poster"
+            src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
+            alt={movie.title || movie.original_title || movie.original_name}
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = Dummy;
+            }}
+          />
+        </Link>
+        <div className="overlay">
+          <ToWatchList />
+        </div>
+      </div>
       <div className="info-container">
         <Link
           to={`/selection/movie/detail/${movie.id}`}

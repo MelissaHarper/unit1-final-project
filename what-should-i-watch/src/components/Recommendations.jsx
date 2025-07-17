@@ -1,5 +1,6 @@
 import MovieCard from "./MovieCard";
 import "../styles/recommendations.css";
+import AddToWatchList from "./AddToWatchList";
 
 const Recommendations = ({ movieList }) => {
   return (
@@ -8,7 +9,7 @@ const Recommendations = ({ movieList }) => {
       <MovieCard movieList={movieList} />
       <MovieCard movieList={movieList} />
       <MovieCard movieList={movieList} />
-      <MovieCard movieList={movieList} />
+      <MovieCard movieList={movieList} toWatchList={AddToWatchList} />
     </div>
   );
 };
